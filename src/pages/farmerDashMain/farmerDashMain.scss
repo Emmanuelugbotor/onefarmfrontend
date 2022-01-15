@@ -1,0 +1,94 @@
+.farmerDashMain_container {
+  & .name_welcome {
+    margin-bottom: 40px;
+    & h1.name {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 45px;
+      margin-bottom: 5px;
+    }
+    & .welcome {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 19px;
+      color: rgba(0, 0, 0, 0.35);
+    }
+  }
+  & .card_one {
+    width: 700px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(236, 201, 179, 0.13);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    & .card_one_item {
+      display: flex;
+      flex-direction: column;
+      & * {
+        margin-bottom: 20px;
+      }
+      & span {
+        &:last-of-type {
+          color: #000;
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 36px;
+          line-height: 54px;
+          /* identical to box height */
+        }
+      }
+    }
+  }
+  & .card_two {
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    & .card_two_item {
+      flex: 0 1 50%;
+      min-height: 160px;
+      background: #effdef;
+      border-radius: 7px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & .left {
+        & span {
+          margin-bottom: 10px;
+          font-weight: 600;
+          font-size: 20px;
+        }
+        & p {
+          margin-bottom: 10px;
+        }
+        & strong {
+          margin-bottom: 10px;
+          font-weight: 600;
+          font-size: 20px;
+        }
+      }
+
+      &:first-of-type {
+        margin-right: 40px;
+        background: #ffefe2;
+      }
+      &.blue {
+        background: #e6f5fa;
+      }
+      &.ash {
+        background: #f4f5f9;
+      }
+    }
+  }
+}

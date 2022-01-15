@@ -1,0 +1,177 @@
+.farmers {
+  display: flex;
+  & .farmer_sidebar {
+    flex: 0 1 27%;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.06);
+    margin-right: 30px;
+    & .logo {
+      margin-bottom: 50px;
+    }
+    & .farmer_heading {
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+    }
+    & .farmer_list {
+      list-style-type: none;
+      & li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        cursor: pointer;
+        &.active {
+          background-color: #88b22e;
+          & .farmer_list_name {
+            color: #fff;
+          }
+        }
+        & .farmer_list_image {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 20px;
+          & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        & .farmer_list_name {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 22px;
+          color: #000000;
+        }
+      }
+    }
+  }
+  & .farmer_main {
+    flex: 0 1 73%;
+    position: relative;
+    padding: 40px;
+    & .farmer_main_wrapper {
+      width: 500px;
+      & .user__card {
+        background: #ffffff;
+        box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.07);
+        border-radius: 5px;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin-top: 70px;
+        & li {
+          list-style-type: none;
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+
+          & .farmer_list_image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            & img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+          }
+          & .farmer_list_name {
+            display: flex;
+            flex-direction: column;
+            & .name {
+              margin-bottom: 5px;
+            }
+            & .title {
+              color: grey;
+              font-size: 14px;
+            }
+          }
+        }
+        & .user__card-title {
+          margin-bottom: 50px;
+
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 600;
+          font-size: 19px;
+          line-height: 28px;
+          /* identical to box height */
+
+          color: #000000;
+        }
+        & .strength {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 14px;
+          line-height: 16px;
+          color: #000000;
+          margin-bottom: 10px;
+          & span {
+            color: #88b22e;
+          }
+        }
+        & .rating {
+          display: flex;
+          align-items: center;
+          & p {
+            margin-right: 10px;
+          }
+          & .rating_wrapper {
+            display: flex;
+            align-items: center;
+            & .icon {
+              color: #88b22e;
+            }
+          }
+        }
+      }
+      & .individual_products {
+        margin-top: 35px;
+        & h3.individual_products_title {
+          margin-bottom: 20px;
+        }
+        & ul.products_list {
+          list-style-type: none;
+          & li.products_item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            & .products_item_image {
+              width: 100px;
+              height: 50px;
+              margin-right: 20px;
+              & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+            & button.button {
+              margin-left: auto;
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: 500;
+              font-size: 13px;
+              line-height: 22px;
+              background: #88b22e;
+              border-radius: 4px;
+              color: #ffffff;
+              border: none;
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

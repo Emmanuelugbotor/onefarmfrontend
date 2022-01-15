@@ -1,0 +1,38 @@
+.farmerSubscribe {
+  & .farmerSubscribe_title {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 45px;
+    color: #000000;
+  }
+  & .details {
+    margin-bottom: 50px;
+  }
+  & .packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    & .precious {
+      height: 386px;
+      background: #eeeeee;
+      border-radius: 10px;
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      &.gold {
+        background: #ffd700;
+      }
+      &.platinum {
+        background: #db9b1a;
+      }
+      & li {
+        & .icon {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

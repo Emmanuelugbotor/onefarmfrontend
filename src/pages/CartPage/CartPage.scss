@@ -1,0 +1,109 @@
+.cart {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  & .cart_left {
+    flex: 0 1 40%;
+    padding: 40px 80px 40px 40px;
+    background: rgba(136, 178, 46, 0.1);
+    & h1.cart_left_title {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    & ul.cart_left_items_wrappers {
+      list-style-type: none;
+
+      & li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        & .check {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid #88b22e;
+          border-radius: 5px;
+          & .check_icon {
+            color: #88b22e;
+          }
+        }
+        & .name_details {
+          display: flex;
+          flex-direction: column;
+          & .name {
+            margin-bottom: 10px;
+          }
+          & .details {
+            & button {
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: 600;
+              font-size: 10px;
+              line-height: 15px;
+              text-align: center;
+              color: #ffffff;
+              background-color: var(--main-color);
+              border: none;
+              padding: 8px 12px;
+            }
+          }
+        }
+      }
+    }
+    & .arrow_forward_backward {
+      float: right;
+      margin-top: 20px;
+      & .arrow_backward {
+        margin-right: 10px;
+      }
+    }
+  }
+  & .cart_right {
+    flex: 0 1 60%;
+    padding: 100px 40px 40px 40px;
+    position: relative;
+    & table.table {
+      width: 100%;
+      border-collapse: collapse;
+      th,
+      td {
+        border-bottom: 1px solid rgba(196, 196, 196, 0.19);
+        padding: 40px;
+      }
+      & .table_head {
+        margin-bottom: 50px !important;
+        & th {
+          text-align: left;
+        }
+      }
+    }
+    & .continue_checkout {
+      float: right;
+      margin-top: 20px;
+      & button.continue_shopping,
+      & button.check_out {
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      & button.continue_shopping {
+        margin-right: 20px;
+        background: #f0f0f0;
+      }
+      & button.check_out {
+        background: #88b22e;
+        color: #fff;
+      }
+    }
+  }
+}

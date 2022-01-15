@@ -1,0 +1,52 @@
+.footer__section {
+  // box-shadow: 0px -3px 50px rgba(0, 0, 0, 0.06);
+  margin-top: 120px;
+}
+.footer__section__row {
+  width: 100%;
+  display: flex;
+  padding: 0 30px;
+}
+.footer__section__column {
+  flex: 0 1 25%;
+  &:not(:last-of-type) {
+    margin-right: 40px;
+  }
+  & .footer__section__description {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+}
+.footer__section__text__header {
+  font-size: 27px;
+  font-weight: 500;
+  margin: 45px 0 20px 0;
+}
+.footer__section__details {
+  list-style-type: none;
+  & li {
+    margin-bottom: 10px;
+  }
+}
+.footer__section__details li a,
+.footer__section__details li .link {
+  text-decoration: none;
+  color: var(--text-main);
+  line-height: 25px;
+  font-size: 14px;
+}
+.footer__section__details li a:hover {
+  transition: 0.1s;
+  font-weight: 500;
+  border-bottom: 3px solid var(--main-color);
+  border-bottom-left-radius: 30%;
+}
+.footer__section__google__download,
+.footer__section__apple__download {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+}

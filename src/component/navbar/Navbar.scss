@@ -1,0 +1,132 @@
+.header {
+  height: 100px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+  padding: 0 10px 0 0;
+}
+.header__logo {
+  position: relative;
+  transform: translateY(-10px);
+}
+.navigation ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation ul li {
+  list-style: none;
+  text-decoration: none;
+  margin-right: 25px;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #88b22e;
+    transform: scale(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  &:hover::after {
+    transform: scale(1);
+    // transform-origin: right;
+  }
+}
+.navigation a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+}
+.login__button,
+.signup__button {
+  min-height: 30px;
+  width: 100px;
+  margin-right: 20px;
+  background: rgba(136, 178, 46, 0.12);
+  border-radius: 3px;
+  padding: 5px;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.login__button__image {
+  width: 30%;
+  margin-right: 5px;
+  /* padding: 15px; */
+}
+.signup__button__image {
+  width: 20%;
+  margin-right: 5px;
+}
+// .signup__button__text {
+//   margin-top: -23px;
+// }
+.login__button__text,
+.signup__button__text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  line-height: 22px;
+  /* margin-top: -25px;
+    margin-left: 15px; */
+}
+.search__form {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 20px;
+  border-radius: 3px;
+  background-color: var(--background-disabled);
+  padding: 7px;
+  & .search__icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: gray;
+  }
+  & .header__search {
+    font-family: 'Poppins', sans-serif;
+    text-indent: 35px;
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+  }
+  & .header__search:focus {
+    background-image: none;
+    outline: none;
+  }
+}
+.basket_wrapper {
+  display: flex;
+  align-items: center;
+  & .header__basket {
+    width: 34px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    padding: 7px;
+    position: relative;
+    margin-right: 5px;
+    /* left: 140px; */
+  }
+  & .header__basket__text {
+    font-size: 14px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

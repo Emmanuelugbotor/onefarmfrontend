@@ -1,0 +1,55 @@
+.details_response {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(2px);
+  & .card {
+    min-width: 400px;
+    min-height: 160px;
+    background-color: #fff;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    & h1 {
+      margin: 20px 0 40px 0;
+      text-align: center;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 36px;
+    }
+    & p {
+      margin-bottom: 10px;
+      & strong {
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16.6536px;
+        line-height: 25px;
+        text-align: center;
+        color: #000000;
+      }
+    }
+    & button {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 19px;
+      line-height: 28px;
+      color: #ffffff;
+      background-color: var(--main-color);
+      margin-top: 40px;
+      text-align: center;
+      padding: 5px 30px;
+      border: none;
+      align-self: center;
+    }
+  }
+}
