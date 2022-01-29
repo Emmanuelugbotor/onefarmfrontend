@@ -1,0 +1,63 @@
+.sideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  z-index: 1000000000000;
+  display: none;
+  @media screen and (max-width: 1186px) {
+    display: block;
+  }
+
+  & .sideNav_main {
+    width: 250px;
+    background-color: #fff;
+    height: 100%;
+    // padding-left: 20px;
+    padding-top: 20px;
+    & .hamburger_logo {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+      & .hamburger_menu {
+        font-size: 35px;
+        color: green;
+        display: block;
+        margin-right: 20px;
+      }
+    }
+  }
+  & .navbar_wrapper {
+    margin-top: 30px;
+    padding-right: 10px;
+    & ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      & li {
+        padding: 10px;
+        padding-left: 20px;
+        width: 100%;
+        &:first-of-type {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+        & div {
+          display: flex;
+          align-items: center;
+        }
+        & span {
+          font-size: 1.4rem;
+          font-weight: 400;
+          display: inline-block;
+        }
+        & .icon {
+          font-size: 30px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}

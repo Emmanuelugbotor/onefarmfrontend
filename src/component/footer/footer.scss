@@ -6,6 +6,10 @@
   width: 100%;
   display: flex;
   padding: 0 30px;
+  @media screen and (max-width: 991px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 .footer__section__column {
   flex: 0 1 25%;
@@ -16,14 +20,27 @@
     font-size: 14px;
     line-height: 1.9;
   }
+  &.useful-link {
+    & .footer__section__text__header {
+      text-align: center;
+    }
+  }
 }
 .footer__section__text__header {
   font-size: 27px;
   font-weight: 500;
   margin: 45px 0 20px 0;
+  @media screen and (max-width: 1158px) {
+    font-size: 20px;
+  }
 }
 .footer__section__details {
   list-style-type: none;
+  &.useful-link {
+    & li {
+      text-align: center;
+    }
+  }
   & li {
     margin-bottom: 10px;
   }
@@ -35,11 +52,22 @@
   line-height: 25px;
   font-size: 14px;
 }
-.footer__section__details li a:hover {
-  transition: 0.1s;
-  font-weight: 500;
-  border-bottom: 3px solid var(--main-color);
-  border-bottom-left-radius: 30%;
+// .footer__section__details li a:hover {
+//   transition: 0.1s;
+//   font-weight: 500;
+//   border-bottom: 3px solid var(--main-color);
+//   border-bottom-left-radius: 30%;
+// }
+.apple_andriod_wrapper {
+  display: flex;
+  align-items: center;
+  & .andriod,
+  & .apple {
+    flex: 1;
+  }
+  & .andriod {
+    margin-right: 5px;
+  }
 }
 .footer__section__google__download,
 .footer__section__apple__download {

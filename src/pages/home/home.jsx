@@ -1,325 +1,185 @@
-import Layout from '../../component/layout/Layout';
-import WhatWeDo from '../../component/WhatWeDo/WhatWeDo';
-import OurFarmers from '../../component/OurFarmers/OurFarmers';
-import './home.scss';
+import Layout from "../../component/layout/Layout";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import "./home.scss";
 // import  from '@mui/icons-material'
 export default function Home() {
   return (
     <Layout>
-      <div className="container">
-        <section className="hero__section">
-          <div className="hero__section__left">
-            <div className="text_button">
-              <h1 className="hero__section__left__text">
-                Welcome To <br /> OneFarmTech <br /> Fresh Organic Food
-              </h1>
-              <button className="hero__section__left__button">Shop Now</button>
+      <div className="_container">
+        <header>
+          <div className="info">
+            <h2 className="title">
+              World Best Organic & Healthy Farmers Industry
+            </h2>
+            <p>
+              Lorem ipsum dolor isut dolor mente albilor ratere solor menter
+              lomotifite
+            </p>
+            <button>Learn More</button>
+          </div>
+        </header>
+        <main>
+          <div className="primary">
+            <h1>Market Update</h1>
+            <div className="right">
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter java la sentry man ate yolo ahd hard ahmen ahhh
+                jeff. adherent gum is quite useful for plumbers loewkey
+              </p>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter java la sentry man ate yolo ahd hard ahmen ahhh
+                jeff. adherent gum is quite useful for plumbers loewkey
+              </p>
             </div>
-
-            <img
-              src="/images/main-hero-side.png"
-              alt=""
-              className="hero__section__left__back__image"
-            />
-            <img
-              src="/images/main-hero.png"
-              alt=""
-              className="hero__section__left__main__image"
-            />
           </div>
-          <div className="hero__side__wrapper">
-            <aside
-              className="hero__aside__top"
-              style={{ backgroundImage: 'url(/images/hero-side.png)' }}
-            >
-              <div className="hero__aside__top__text_button">
-                <h1 className="hero__aside__top__text">
-                  Fresh <br />
-                  <span>Exotic Fruits</span>
-                </h1>
-                <button className="hero__aside__top__button">
-                  View Products{' '}
-                  <img
-                    src="../images/chevron-white.png"
-                    alt=""
-                    className="hero__aside__top__button__arrow"
-                  />
-                </button>
+          <div className="secondary">
+            <div className="secondary_wrapper">
+              <h2>Lagos Market Update</h2>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter
+              </p>
+            </div>
+            <div className="secondary_wrapper">
+              <h2>Lagos Market Update</h2>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter
+              </p>
+            </div>
+            <div className="secondary_wrapper">
+              <h2>Lagos Market Update</h2>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter
+              </p>
+            </div>
+          </div>
+        </main>
+        <div className="product_gallery">
+          <div className="product_gallery_left">
+            <img src="/images/image_2.png" alt="" />
+          </div>
+          <div className="product_gallery_right">
+            <div className="product_gallery_right_top">
+              <img src="/images/image_33.png" alt="" />
+            </div>
+            <div className="product_gallery_right_bottom">
+              <div className="image_wrap">
+                <img src="/images/image_34.png" alt="" />
               </div>
-            </aside>
-            <aside className="hero__aside__bottom">
-              <h1 className="hero__aside__bottom__text">
-                Fresh <br />
-                <span>Exotic Vegetables</span>
-              </h1>
-              <button className="hero__aside__bottom__button">
-                View Products{' '}
-                <img
-                  src="../images/chevron-white.png"
-                  alt=""
-                  className="hero__aside__bottom__button__arrow"
-                />
-              </button>
-              <img
-                src="/images/hero-side-down.png"
-                alt=""
-                className="hero__aside__bottom__img"
-              />
-            </aside>
+              <div className="image_wrap">
+                <img src="/images/image_35.png" alt="" />
+              </div>
+            </div>
           </div>
+        </div>
+        <div className="local_merchant_gallery">
+          <div className="local_merchant_gallery-left">
+            <figure>
+              <img src="/images/image_36.png" alt="" />
+            </figure>
+          </div>
+          <div className="local_merchant_gallery-right">
+            <h1>over 400 Local merchants </h1>
+            <p>
+              Lorem ipsum dolor siti is molor doloroto this is mani felito loto
+              mina ter java la sentry man ate yolo ahd hard ahmen ahhh jeff.
+              adherent gum is quite useful for plumbers loewkey
+            </p>
+            <span>
+              Become a Merchant <ArrowForwardIcon className="arrow_icon" />
+            </span>
+          </div>
+        </div>
+        <div className="local_merchant_gallery">
+          <div className="local_merchant_gallery-right second">
+            <h1>100% Organic Product </h1>
+            <p>
+              Lorem ipsum dolor siti is molor doloroto this is mani felito loto
+              mina ter java la sentry man ate yolo ahd hard ahmen ahhh jeff.
+              adherent gum is quite useful for plumbers loewkey
+            </p>
+            <span>
+              Go to Marketplace <ArrowForwardIcon className="arrow_icon" />
+            </span>
+          </div>
+          <div className="local_merchant_gallery-left">
+            <figure className="second_figure">
+              <img src="/images/image_37.png" alt="" />
+            </figure>
+          </div>
+        </div>
+        <section className="stats">
+          <ul>
+            <li>
+              <figure>
+                <img src="/images/leaves.png" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img src="/images/award.png" alt="" />
+              </figure>
+            </li>
+            <li>
+              <figure>
+                <img src="/images/farmer_1.png" alt="" />
+              </figure>
+            </li>
+          </ul>
         </section>
-        <section className="services__section">
-          <div className="services__section__column">
-            <div className="image_wrapper">
-              <img
-                src="/images/delivery.png"
-                alt=""
-                className="services__section__column__image"
-              />
-            </div>
-
-            <p className="services__section__column__text">Fast Delivery</p>
-            <p className="services__section__column__text__description">
-              Delivery takes 2 to 5 working days.
-            </p>
-          </div>
-          <div className="services__section__column">
-            <div className="image_wrapper">
-              <img
-                src="/images/headset.png"
-                alt=""
-                className="services__section__column__image"
-              />
-            </div>
-
-            <p className="services__section__column__text">Customer Support</p>
-            <p className="services__section__column__text__description">
-              We provide round the clock customer support.
-            </p>
-          </div>
-          <div className="services__section__column">
-            <div className="image_wrapper">
-              <img
-                src="/images/wallet.png"
-                alt=""
-                className="services__section__column__images"
-              />
-            </div>
-
-            <p className="services__section__column__text">
-              Secure and safe payment
-            </p>
-            <p className="services__section__column__text__description">
-              We provide secure and safe payment methods.
-            </p>
-          </div>
+        <section className="vid">
+          <img src="/images/Rectangle_vid.png" alt="" />
         </section>
-        <section className="products__section">
-          <h1 className="products__section__text">New Products</h1>
-          <p className="products__section__text__description">
-            Recently added to the store
-          </p>
-          <div className="products__section__row">
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/cherry.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">
-                  Red Tomatoes
-                </h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 100
+        <section className="upcoming_events">
+          <div className="heading">
+            <h1>Upcoming Events</h1>
+            <p>
+              Lorem ipsum dolor siti is molor doloroto this is mani felito loto
+              mina ter
+            </p>
+          </div>
+          <div className="events_details_wrapper">
+            <div className="events_details_content">
+              <h1>Organic Crop cultivation Event 2017</h1>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter
               </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
+              <span>
+                Learn More <ArrowForwardIcon className="arrow_icon" />
+              </span>
             </div>
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/peppers.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">
-                  Red Peppers
-                </h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 50
+            <div className="events_details_content">
+              <h1>Organic Crop cultivation Event 2017</h1>
+              <p>
+                Lorem ipsum dolor siti is molor doloroto this is mani felito
+                loto mina ter
               </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
-            </div>
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/pear.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">Avocados</h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 200
-              </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
-            </div>
-
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/cherry.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">
-                  Red Tomatoes
-                </h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 100
-              </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
-            </div>
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/peppers.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">
-                  Red Peppers
-                </h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 50
-              </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
-            </div>
-            <div className="products__section__column">
-              <div className="products__section__product__image_wrapper">
-                <img
-                  src="/images/pear.png"
-                  alt=""
-                  className="products__section__product__image"
-                />
-              </div>
-              <div className="product_name_basket">
-                <h1 className="products__section__product__name">Avocados</h1>
-                <img
-                  src="/images/cart-11-24.png"
-                  alt=""
-                  className="product__section__basket"
-                />
-              </div>
-
-              <p className="products__section__product__price">
-                Price: &#8358; 200
-              </p>
-              <button className="products__section__product__button">
-                View More
-              </button>
+              <span>
+                Learn More <ArrowForwardIcon className="arrow_icon" />
+              </span>
             </div>
           </div>
         </section>
-        <section className="discount__section">
-          <div className="discount__section__row">
-            <div className="discount__section__column">
-              <h1 className="discount__percentage">50% OFF</h1>
-              <h1 className="discount__section__text">
-                Get Quality <br /> Vegetables at <br /> Affordable Rates
-              </h1>
-              <button className="discount__section__button">
-                View Products{' '}
-                <img
-                  src="/images/right-chevron.png"
-                  alt=""
-                  className="discount__section__button__arrow"
-                />
-              </button>
-              <img
-                src="/images/discount (1).png"
-                alt=""
-                className="discount__section__vegetable__image"
-              />
-            </div>
-            <div className="discount__section__column__fruits">
-              <img
-                src="/images/discount (2).png"
-                alt=""
-                className="discount__section__fruits__image"
-              />
-              <h1 className="discount__section__fruits__text">
-                Fruits Straight From <br /> the Farm
-              </h1>
-              <button className="discount__section__button">
-                View Products{' '}
-                <img
-                  src="/images/right-chevron.png"
-                  alt=""
-                  className="discount__section__button__arrow"
-                />
-              </button>
-              <h1 className="discount__fruits__percentage">50% OFF</h1>
-            </div>
+        <section className="newsletter">
+          <div className="form_wrapper">
+            <h1>Newsletter</h1>
+            <form action="">
+              <div className="form_field">
+                <input type="text" name="" id="" placeholder="Full name" />
+              </div>
+              <div className="form_field">
+                <input type="text" name="" id="" placeholder="Email address" />
+              </div>
+              <input type="submit" value="Suscribe now" />
+            </form>
           </div>
         </section>
       </div>
-      <WhatWeDo />
-      <OurFarmers />
     </Layout>
   );
 }

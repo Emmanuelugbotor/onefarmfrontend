@@ -28,6 +28,34 @@ export const getProductReducer = (state = { products: [] }, action) => {
   }
 };
 
+export const postProductReducer = (state = { products: [] }, action) => {
+  console.log("incoming actions ", action)
+
+  switch (action.type) {
+    
+    case actionTypes.POST_PRODUCT_REQUEST:
+      return {
+        loading: true,
+        products: [],
+      };
+
+    case actionTypes.POST_PRODUCT_SUCCESS:
+      return {
+        loading: false,
+        products: action.payload,
+      };
+
+    case actionTypes.POST_PRODUCT_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const getProductDetailsReducer = (state = { product: [] }, action) => {
 
   switch (action.type) {

@@ -1,11 +1,21 @@
-import { Link } from 'react-router-dom';
-import './Navbar.scss';
-import SearchIcon from '@mui/icons-material/Search';
+import { Link } from "react-router-dom";
+import "./Navbar.scss";
+import SearchIcon from "@mui/icons-material/Search";
+import MenuIcon from "@mui/icons-material/Menu";
+import SideNav from "../sideNav/sideNav";
+import { useState } from "react";
 export default function Navbar() {
+  const [home, setHome] = useState(false);
+  function handleClicked() {
+    setHome(false);
+  }
   return (
     <div>
       <header className="header">
-        <img src="/images/main-logo.png" alt="" className="header__logo" />
+        <MenuIcon className="hamburger_menu" onClick={() => setHome(true)} />
+        <div className="company_logo">
+          <img src="/images/main-logo.png" alt="" className="header__logo" />
+        </div>
         <nav className="navigation">
           <ul>
             <li>
@@ -79,10 +89,11 @@ export default function Navbar() {
               src="/images/cart-11-24.png"
               alt=""
               className="header__basket"
-            />{' '}
+            />{" "}
             <p className="header__basket__text">Basket</p>
           </div>
         </div>
+        {home && <SideNav handleClicked={handleClicked} />}
       </header>
     </div>
   );

@@ -1,0 +1,117 @@
+.admin_dashboard {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  & .sidenav {
+    flex: 0 1 25%;
+    background: rgba(223, 202, 202, 0.2);
+    min-height: 100vh;
+    padding: 20px;
+    & ul {
+      & li {
+        display: flex;
+        align-items: center;
+        height: 52px;
+        position: relative;
+        & span {
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 14px;
+          line-height: 21px;
+          letter-spacing: 0.1px;
+          color: #2a2a2a;
+        }
+        & .icon {
+          font-size: 25px;
+          margin-right: 10px;
+        }
+        // &::after {
+        //   content: "";
+        //   left: 0;
+        //   bottom: 0;
+        //   width: 5px;
+        //   height: 0%;
+        //   position: absolute;
+        //   background-color: #fff;
+        //   //   transform: scale(0);
+        //   transition: height 1s, width .2s ease-in-out .5s;
+        // }
+        // &:hover::after {
+        //   height: 100%;
+        //   width: 100%;
+        // }
+      }
+
+      & .nav-link {
+        text-decoration: none;
+        &.active {
+          & li {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+  & .main_content {
+    flex: 0 1 75%;
+    background-color: #fff;
+    padding: 20px;
+    & .main_content_notification-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+section.farmers-network {
+  & .title_add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & button {
+      width: 104px;
+      height: 42px;
+      background: #88b22e;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      border: none;
+      color: #fff;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 22px;
+      & .add {
+        margin-left: 4px;
+      }
+    }
+  }
+  & .farmer_table {
+    & table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border-bottom: 1px solid rgba(196, 196, 196, 0.19);
+      padding: 30px;
+    }
+    & button {
+      width: 104px;
+      height: 42px;
+      background: #f5de09;
+      border-radius: 4px;
+      border: none;
+      color: #fff;
+      &.btn-danger {
+        background: #d00000;
+        border-radius: 4px;
+      }
+    }
+  }
+}

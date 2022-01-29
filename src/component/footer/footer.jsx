@@ -1,8 +1,7 @@
-import './footer.scss';
-import { Link } from 'react-router-dom';
+import "./footer.scss";
+import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <div>
       <section className="footer__section">
         <div className="footer__section__row">
           <div className="footer__section__column">
@@ -16,9 +15,9 @@ export default function Footer() {
               agricultural produces accessible to many.
             </p>
           </div>
-          <div className="footer__section__column">
+          <div className="footer__section__column useful-link">
             <h1 className="footer__section__text__header">Useful Links</h1>
-            <ul className="footer__section__details">
+            <ul className="footer__section__details useful-link">
               <li>
                 <Link to="/about" className="link">
                   About
@@ -75,19 +74,24 @@ export default function Footer() {
             <p className="footer__section__description">
               Download our app for Android and IOS mobile phone.
             </p>
-            <img
-              src="/images/download-google.png"
-              alt=""
-              className="footer__section__google__download"
-            />
-            <img
-              src="/images/download-apple.png"
-              alt=""
-              className="footer__section__apple__download"
-            />
+            <div className="apple_andriod_wrapper">
+              <div className="andriod">
+                <img
+                  src="/images/download-google.png"
+                  alt=""
+                  className="footer__section__google__download"
+                />
+              </div>
+              <div className="apple">
+                <img
+                  src="/images/download-apple.png"
+                  alt=""
+                  className="footer__section__apple__download"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    </div>
   );
 }

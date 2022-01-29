@@ -13,17 +13,17 @@ export default function FarmerDashMain() {
         <div className="card_one_item">
           <RemoveRedEyeIcon />
           <span>view</span>
-          <span>600</span>
+          <span>000</span>
         </div>
         <div className="card_one_item">
           <RemoveRedEyeIcon />
           <span>visit</span>
-          <span>200</span>
+          <span>000</span>
         </div>
         <div className="card_one_item">
           <RemoveRedEyeIcon />
           <span>orders</span>
-          <span>300</span>
+          <span>000</span>
         </div>
       </div>
       <div className="card_two">
@@ -42,7 +42,7 @@ export default function FarmerDashMain() {
           <div className="left">
             <span>Profit</span>
             <p>Total sales of the week</p>
-            <strong>$500</strong>
+            <strong>$000</strong>
           </div>
           <div className="right">
             <ArrowUpwardIcon />
@@ -55,7 +55,7 @@ export default function FarmerDashMain() {
           <div className="left">
             <span>Orders</span>
             <p>Total sales of the week</p>
-            <strong>$500</strong>
+            <strong>$000</strong>
           </div>
           <div className="right">
             <ArrowUpwardIcon />
@@ -66,7 +66,7 @@ export default function FarmerDashMain() {
           <div className="left">
             <span>Visit</span>
             <p>Total sales of the week</p>
-            <strong>$500</strong>
+            <strong>$000</strong>
           </div>
           <div className="right">
             <ArrowUpwardIcon />

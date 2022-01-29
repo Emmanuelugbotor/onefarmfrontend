@@ -15,8 +15,20 @@ import SearchNotification from "../../component/SearchNotification/SearchNotific
 import FarmerDashAdd from "../farmerDashAdd/FarmerDashAdd";
 import FarmerProducts from "../farmerProduct/FarmerProducts";
 import FarmerSubscribe from "../farmerSuscribe/farmerSubscribe";
+import { useDispatch } from "react-redux";
+import { signOut } from "../../redux/actions/usersAction";
+import { useEffect } from "react";
+
 export default function FarmerDashboard() {
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
+
+  const Logout=()=>  dispatch(signOut())
+
+  useEffect(()=>{
+
+  }, [dispatch])
+  
   return (
     <div className="farmerDash">
       <div className="farmerDashboard_left">
@@ -24,7 +36,7 @@ export default function FarmerDashboard() {
           <img src="/images/main-logo.png" alt="main-logo" />
         </div>
         <ul className="farmerDashboard_left_list">
-          {/*  */}
+          
           <NavLink
             to=""
             className={(navData) =>
@@ -34,10 +46,10 @@ export default function FarmerDashboard() {
           >
             <li className="farmerDashboard_left_item ">
               <HomeIcon className="icon" />
-              <span>Home</span>
+              <span>Dashboard</span>
             </li>
           </NavLink>
-          {/*  */}
+        
           <NavLink
             to="add"
             className={(navData) =>
@@ -116,11 +128,12 @@ export default function FarmerDashboard() {
               "nav-link " + (navData.isActive ? "active" : "")
             }
           >
-            <li className="farmerDashboard_left_item logout">
+            <li className="farmerDashboard_left_item logout" onClick={()=>Logout()}>
               <LogoutIcon className="icon" />
               <span>logout</span>
             </li>
           </NavLink>
+
         </ul>
       </div>
       <div className="farmerDashboard_right">

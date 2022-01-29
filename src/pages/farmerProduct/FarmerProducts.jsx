@@ -1,15 +1,41 @@
 import { DataGrid } from "@mui/x-data-grid";
-import { useState } from "react";
+import { useState, useEffect  } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Data from "../../dommydata";
 import { Link } from "react-router-dom";
 import "./FarmerProducts.scss";
 import Alert from "../../component/Alert/Alert";
+import { getProducts } from "../../redux/actions/productAction";
+
 const { allProduct } = Data;
 
 export default function FarmerProducts() {
+
+  const dispatch = useDispatch();
+  
+  
+  const getProduct = useSelector((state) => state.getProduct);
+
+  const [feature, setFeatured] = useState([]);
+  const [category, setCategory] = useState([]);
+  // const { products, loading, error } = getProduct;
+
+
+  useEffect(() => {
+    // axios
+    //   .get(`${url}getproducts`)
+    //   .then((res) => {
+    //     setFeatured(res.data.items);
+    //     setCategory(res.data.items);
+    //   })
+    //   .catch((error) => console.log(error), setFeatured([]));
+    dispatch(getProducts());
+  }, [dispatch]);
+
   const [products, setProducts] = useState(allProduct);
   const [initiate, setInitiate] = useState(false);
   const [status, setStatus] = useState(false);
+
   const columns = [
     {
       field: "img",
@@ -64,8 +90,10 @@ export default function FarmerProducts() {
       },
     },
   ];
+
   // handling the temporal removal of data and updating the state...
   // const [data, setData] = useState(productRows);
+
   function handleDelete(id) {
     setInitiate(!initiate);
     if (status) {
@@ -74,13 +102,16 @@ export default function FarmerProducts() {
     }
     setStatus(false);
   }
+  
   function handleRemove() {
     setInitiate(!initiate);
   }
+
   function handleTrue() {
     setStatus(true);
     setInitiate(!initiate);
   }
+
   function handleFalse() {
     setStatus(false);
     setInitiate(!initiate);
