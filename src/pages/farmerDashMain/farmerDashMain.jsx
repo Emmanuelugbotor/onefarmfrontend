@@ -2,12 +2,16 @@ import "./farmerDashMain.scss";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { useSelector } from "react-redux";
 export default function FarmerDashMain() {
+  
+  const userSignin = useSelector((state) => state.userSignIn);
+  const { userInfo } = userSignin;
   return (
     <div className="farmerDashMain_container">
       <div className="name_welcome">
-        <h1 className="name">Hi FarmHub</h1>
-        <div className="welcome">Welcome back!</div>
+        <h1 className="name">Hi {userInfo.name}</h1>
+        <div className="welcome">Welcome !</div>
       </div>
       <div className="card_one">
         <div className="card_one_item">
@@ -31,7 +35,7 @@ export default function FarmerDashMain() {
           <div className="left">
             <span>Sales</span>
             <p>Total sales of the week</p>
-            <strong>$500</strong>
+            <strong>$000</strong>
           </div>
           <div className="right">
             <ArrowUpwardIcon />

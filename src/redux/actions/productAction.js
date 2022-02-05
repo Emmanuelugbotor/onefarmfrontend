@@ -15,9 +15,9 @@ export const getProducts = () => async (dispatch) => {
       .then((res) => {
         dispatch({
           type: actionTypes.GET_PRODUCT_SUCCESS,
-          payload: res.data.items,
+          payload: res.data.result,
         });
-        localStorage.setItem("products", JSON.stringify(res.data.items));
+        localStorage.setItem("products", JSON.stringify(res.data.result));
       })
       .catch((error) =>
         dispatch({

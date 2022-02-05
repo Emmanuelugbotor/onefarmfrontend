@@ -24,9 +24,9 @@ const faqData = [
 
 const farmers = [
   {
-    user_name: 'Adeola Funsho',
+    name: 'Adeola Funsho',
     photo_url: '/images/farmer-1.jpg',
-    title: 'fish farmer',
+    address: 'fish farmer',
     id: 1,
     product: [
       {
@@ -36,9 +36,9 @@ const farmers = [
     ],
   },
   {
-    user_name: 'Ademola Adetutu',
+    name: 'Ademola Adetutu',
     photo_url: '/images/farmer-2.jpg',
-    title: 'fish farmer',
+    address: 'fish farmer',
     id: 2,
     product: [
       {
@@ -56,9 +56,9 @@ const farmers = [
     ],
   },
   {
-    user_name: 'Bob Sam',
+    name: 'Bob Sam',
     photo_url: '/images/farmer-3.jpg',
-    title: 'fish farmer',
+    address: 'fish farmer',
     id: 3,
     product: [
       {
@@ -76,9 +76,9 @@ const farmers = [
     ],
   },
   {
-    user_name: 'Eziene Juilet',
+    name: 'Eziene Juilet',
     photo_url: '/images/farmer-4.jpg',
-    title: 'Cereal farmer',
+    address: 'Cereal farmer',
     id: 4,
     product: [
       {
@@ -96,9 +96,9 @@ const farmers = [
     ],
   },
   {
-    user_name: 'siamak poorjam',
+    name: 'siamak poorjam',
     photo_url: '/images/farmer-5.jpg',
-    title: 'fruit farmer',
+    address: 'fruit farmer',
     id: 5,
     product: [
       {
@@ -136,56 +136,56 @@ let cart = [
 let allProduct = [
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:1,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:2,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:3,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:4,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:5,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:6,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:7,
 
   },
   {
     img: '/images/cherry.png',
-    title: 'Cherry',
+    address: 'Cherry',
     price: 2000,
     id:8,
 

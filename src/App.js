@@ -20,6 +20,8 @@ import store from "../src/redux/store";
 import SuperLoginPage from "./pages/superAdminRoutes/adminLogin/login";
 import SuperRegisterPage from "./pages/superAdminRoutes/adminRegister/adminRegister";
 import AdminDashboard from "./pages/superAdminRoutes/adminDashboard/adminDashboard";
+import Address from './pages/Address/Address'
+// import CheckoutPage from "../src/"
 function App() {
   return (
     <React.Fragment>
@@ -35,6 +37,7 @@ function App() {
           <Route path="/farmers" element={<Farmers />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/payment" element={<Payment />} />
+          <Route path="/address" element={<Address />} />
           {/* FARMERS SECTION */}
           <Route path="/farmer_signUpPage" element={<SignUp />} />
           <Route path="/farmer_LoginPage" element={<Login />} />

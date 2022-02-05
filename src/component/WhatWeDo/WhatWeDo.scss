@@ -1,25 +1,25 @@
 // what we do Section
 section.what_we_do {
-  padding: 70px 0;
+  padding: 7rem 0;
   background-image: linear-gradient(to bottom, #f8f8f8 50.7%, #fff 50.7%);
   width: 100%;
 
   & .what_we_do_wrapper {
-    max-width: 1000px;
+    max-width: 100rem;
     width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 5rem;
     & .what_we_do_card {
-      min-height: 400px;
-      border-radius: 12px;
+      min-height: 40rem;
+      border-radius: 1.2rem;
       overflow: hidden;
-      box-shadow: 0px 4px 8px 0px #0000000f;
+      box-shadow: 0px .4rem .8rem 0px #0000000f;
 
       & .what_we_do_image {
         width: 100%;
-        height: 163px;
+        height: 16.3rem;
         background-color: grey;
 
         & img {
@@ -29,22 +29,22 @@ section.what_we_do {
         }
       }
       & .what_we_do_title {
-        line-height: 30px;
+        line-height: 3rem;
         width: 100%;
         display: flex;
         justify-content: center;
-        margin: 10px 0;
+        margin: 1rem 0;
         font-weight: 500;
       }
       & .what_we_do_desc {
-        width: 292px;
+        width: 29.2rem;
         margin: 0 auto;
-        line-height: 22.9px;
+        line-height: 2.29rem;
         text-align: center;
         font-weight: 300;
         font-family: poppins;
         color: grey;
-        font-size: 14px;
+        font-size: 1.4rem;
       }
     }
   }
@@ -56,20 +56,20 @@ section.what_we_do {
   align-items: center;
   & h1 {
     // text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
     position: relative;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 400;
     font-style: normal;
-    line-height: 30px;
+    line-height: 3rem;
     &::after {
       position: absolute;
       content: '';
       width: 80%;
-      height: 2px;
+      height: .2rem;
       background-color: #88b22e;
       top: calc(100%);
-      left: 20px;
+      left: 2rem;
     }
   }
 }

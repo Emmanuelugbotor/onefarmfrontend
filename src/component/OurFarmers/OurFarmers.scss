@@ -1,22 +1,22 @@
 // our farmers sections
 section.our_farmers {
   // margin-top: -307px;
-  padding-top: 70px;
+  padding-top: 7rem;
   background-color: #fff;
   & .our_farmers_wrapper {
-    max-width: 1000px;
+    max-width: 100rem;
     width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 5rem;
     & .our_farmers_card {
-      height: 233px;
-      border-radius: 5px;
+      height: 23.3rem;
+      border-radius: .5rem;
       background-repeat: no-repeat !important;
       background-size: cover !important;
       background-position: center;
-      padding: 40px 20px 0 20px;
+      padding: 4rem 2rem 0 2rem;
       overflow: hidden;
       position: relative;
       &::after {
@@ -30,10 +30,10 @@ section.our_farmers {
       }
       & .our_farmers_name {
         color: #fff;
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
         z-index: 3;
         position: relative;
-        transform: translateX(-200px);
+        transform: translateX(-20rem);
         transition: transform 0.3s;
       }
 
@@ -41,7 +41,7 @@ section.our_farmers {
         color: #fff;
         z-index: 3;
         position: relative;
-        transform: translateX(-200px);
+        transform: translateX(-20rem);
         transition: transform 0.3s;
         transition-delay: 0.3s;
       }

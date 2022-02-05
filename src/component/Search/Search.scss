@@ -1,28 +1,28 @@
 .form_comp {
   width: 100%;
-  height: 40px;
+  height: 4rem;
   position: relative;
   background-color: #fff;
-  box-shadow: 0px 1px 16px rgba(0, 0, 0, 0.06);
-  margin-bottom: 30px;
+  box-shadow: 0px .1rem 1.6rem rgba(0, 0, 0, 0.06);
+  margin-bottom: 3rem;
   & input {
     width: 100%;
     height: 100%;
     border: none;
-    padding: 0 60px 0 40px;
+    padding: 0 6rem 0 4rem;
     outline: none;
   }
   & button.sidebar__section__search__button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    right: 10px;
+    right: 1rem;
     color: #fff;
     background: #88b22e;
-    border-radius: 3px;
-    font-size: 12px;
-    width: 80px;
-    padding: 5px;
+    border-radius: .3rem;
+    font-size: 1.2rem;
+    width: 8rem;
+    padding: .5rem;
     border: none;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
@@ -31,7 +31,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 10px;
+    left: 1rem;
     color: grey;
   }
 }

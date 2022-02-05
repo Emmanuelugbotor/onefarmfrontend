@@ -1,7 +1,8 @@
-import "../adminLogin/login.scss";
 import PersonIcon from "@mui/icons-material/Person";
 import KeyIcon from "@mui/icons-material/Key";
 import { useForm } from "react-hook-form";
+import SuperAdminLayout from "../../../component/layout/superAdminLayout/superAdminLayout";
+import './adminRegister.scss'
 export default function SuperRegisterPage() {
   const {
     handleSubmit,
@@ -12,38 +13,26 @@ export default function SuperRegisterPage() {
   } = useForm();
   //   handling the form data...
   const onSubmit = (data) => {
-    console.log("data coming in froom the frntnd ", data);
+    console.log( data)
   };
 
   return (
-    <div className="adminLogin">
+<SuperAdminLayout>
+<div className="adminRegister">
       <div className="image_wrapper">
         <img src="/images/main-logo.png" alt="" className="header__logo" />
       </div>
       <div className="form_wrapper">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="form_title">Login</h1>
-          <div className="form_field">
-            <input type="text" placeholder="Email" />
-            <label htmlFor="">
-              <PersonIcon className="icon" />
-            </label>
-          </div>
-          <div className="form_field">
-            <input type="email" name="" id="" placeholder="Email" />
-            <label htmlFor="">
-              <PersonIcon className="icon" />
-              {/* <span>Email</span> */}
-            </label>
-          </div>
+          <h1 className="form_title">Register</h1>
           <div className="form_field_wrapper">
             <div className="form_field ">
               {/* <label>First name</label> */}
               <input
                 type="text"
-                placeholder="Bryan"
-                {...register("firstName", {
-                  required: "First Name is Required",
+                placeholder="Enter full name"
+                {...register("fullName", {
+                  required: "fullName is Required",
                 })}
               />
               {/* {errors?.firstName && (
@@ -54,9 +43,9 @@ export default function SuperRegisterPage() {
               {/* <label>Last name</label> */}
               <input
                 type="text"
-                placeholder="Williams"
-                {...register("lastName", {
-                  required: "Last Name is Required",
+                placeholder="enter phone number"
+                {...register("phone", {
+                  required: "phone is Required",
                 })}
               />
               {/* {errors?.lastName && (
@@ -64,18 +53,27 @@ export default function SuperRegisterPage() {
             )} */}
             </div>
           </div>
+          <div className="form_field_wrapper">
           <div className="form_field">
-            <input type="password" name="" id="" placeholder="Password" />
-            <label htmlFor="">
-              <KeyIcon className="icon" />
-              {/* <span>Password</span> */}
-            </label>
+            <input type="password" placeholder="password" {...register('password', {required:"please enter password"})}/>
+            
           </div>
           <div className="form_field">
-            <input type="submit" value="Sign Up" />
+            <input type="password" placeholder="confirm password" {...register('confirmPassword', {required:"please enter password"})} />
+          </div>
+          </div>
+
+ 
+          <div className="form_field">
+            <input type="email" placeholder="Enter email" {...register('email', {required:"please enter a valid email"})}/>
+          </div>
+          <div className="form_field">
+            <button type="submit">Sign Up</button>
           </div>
         </form>
       </div>
     </div>
+</SuperAdminLayout>
+    
   );
 }

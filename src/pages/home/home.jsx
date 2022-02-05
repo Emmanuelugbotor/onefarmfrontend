@@ -94,7 +94,7 @@ export default function Home() {
             </span>
           </div>
         </div>
-        <div className="local_merchant_gallery">
+        <div className="local_merchant_gallery second-local">
           <div className="local_merchant_gallery-right second">
             <h1>100% Organic Product </h1>
             <p>

@@ -1,15 +1,15 @@
 .faq {
-  max-width: 1000px;
+  max-width: 100rem;
   width: 100%;
   margin: 0 auto;
-  padding-top: 40px;
+  padding-top: 4rem;
   & .faq_title {
     font-family: Inter;
     font-style: normal;
     font-weight: 800;
-    font-size: 48px;
-    line-height: 64px;
-    margin-bottom: 70px;
+    font-size: 4.8rem;
+    line-height: 6.4rem;
+    margin-bottom: 7rem;
   }
   & .faq_question_answer {
     display: flex;
@@ -17,29 +17,29 @@
     & .faq_question_answer_left {
       flex: 0 1 50%;
       align-self: flex-start;
-      border: 1px solid rgb(231, 222, 222);
+      border: .1rem solid rgb(231, 222, 222);
       & .question {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        padding: 1rem 1.5rem;
         background-color: #fff;
         cursor: pointer;
         &.active {
           background-color: rgb(233, 227, 227);
         }
         &:not(:last-of-type) {
-          border-bottom: 1px solid rgb(231, 222, 222);
+          border-bottom: .1rem solid rgb(231, 222, 222);
         }
         & .form__radio-button {
           align-self: flex-start;
           & span {
             display: inline-block;
             //   align-self: flex-start;
-            width: 15px;
-            height: 15px;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 50%;
             background: rgba(136, 178, 46, 0.58);
-            margin-right: 10px;
+            margin-right: 1rem;
             box-sizing: border-box;
             backface-visibility: hidden;
           }
@@ -49,11 +49,11 @@
           background: green;
         }
         & p {
-          font-size: 13px;
+          font-size: 1.3rem;
         }
         & .icon {
           color: rgba(136, 178, 46, 0.58);
-          font-size: 15px;
+          font-size: 1.5rem;
           margin-left: auto;
         }
       }
@@ -61,23 +61,23 @@
     & .faq_question_answer_right {
       flex: 0 1 50%;
       background: #fff;
-      min-height: 300px;
-      transform: translateX(-40px) translateY(-40px);
+      min-height: 30rem;
+      transform: translateX(-4rem) translateY(-4rem);
       z-index: -1;
       position: relative;
-      padding: 20px;
-      padding-left: 60px;
+      padding: 2rem;
+      padding-left: 6rem;
       // border-radius: 5px;
       background: rgba(136, 178, 46, 0.02);
-      box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.15);
-      border-radius: 16px;
+      box-shadow: 0px 0px .4rem 1px rgba(0, 0, 0, 0.15);
+      border-radius: 1.6rem;
       & h2 {
-        font-size: 18px;
-        line-height: 28px;
-        margin-bottom: 20px;
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        margin-bottom: 2rem;
       }
       & p {
-        font-size: 14px;
+        font-size: 1.4rem;
         color: grey;
       }
     }

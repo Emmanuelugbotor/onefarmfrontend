@@ -1,44 +1,90 @@
-import './Farmers.scss';
-import Data from '../../dommydata';
 // import HomeIcon from '@mui/icons-material/Home';
-import SearchComponent from '../../component/Search/Search';
-import StarIcon from '@mui/icons-material/Star';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { useState } from 'react';
+import "./Farmers.scss";
+import axios from "axios";
+import Data from "../../dommydata";
+import { url } from "../../constant/url";
+import { useEffect, useState } from "react";
+import addToCarts from "../../utils/addToCart";
+import StarIcon from "@mui/icons-material/Star";
+import { useDispatch, useSelector } from "react-redux";
+import SearchComponent from "../../component/Search/Search";
+import { getProducts } from "../../redux/actions/productAction";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import CartButton from "../../utils/cartButton";
+import { Link } from "react-router-dom";
+
 const { farmers } = Data;
+
 export default function Farmers() {
+  const dispatch = useDispatch();
+
   const [current, setCurrent] = useState(farmers[0].id);
+  const [farmersList, setFarmersList ]= useState(farmers);
+  const [productList, setProduct ]= useState(farmers);
+  const [farmersProduct, setFarmerProduct ]= useState(farmers);
 
   function handleClicked(id) {
     setCurrent(id);
+    setFarmerProduct(productList.filter((items)=> items.farmer_id == id))
   }
+  
+  let added = addToCarts(useDispatch, useSelector);
+
+  useEffect(() => {
+
+    axios.get(`${url}getFarmers`).then((res)=>{
+      let { data } = res;
+      setFarmersList(data.result);
+    }).catch((e)=>{
+      console.log("ERROR FETCHING DATA ")
+    })
+  
+    axios.get(`${url}getProducts`).then((res)=>{
+      let { data } = res;
+      setFarmerProduct(data.result);
+      setProduct(data.result);
+    }).catch((e)=>{
+      console.log("ERROR FETCHING PRODUCT DATA ")
+    })
+
+    dispatch(getProducts());
+  }, [dispatch]);
+
   return (
+
     <div className="farmers">
+      <CartButton/>
       <div className="farmer_sidebar">
         <div className="logo">
+          <Link to={"/"}> 
           <img src="/images/main-logo.png" alt="main-logo" />
+          </Link>
         </div>
         <div className="farmer_heading">
           <PersonOutlineIcon />
-          <span>Our Farmers</span>
+          <h1>Our Farmers</h1>
         </div>
         <ul className="farmer_list">
-          {farmers.map((user) => {
+          {farmersList.map((user) => {
             return (
               <li
                 key={user.id}
                 onClick={() => handleClicked(user.id)}
-                className={current === user.id && 'active'}
+                className={current === user.id && "active"}
               >
                 <div className="farmer_list_image">
-                  <img src={`${user.photo_url}`} alt="" />
+                  <img src={`${user.photo_url ? user.photo_url : '/images/main-logo.png'}`} alt="" />
                 </div>
-                <div className="farmer_list_name">{user.user_name}</div>
+                <div className="farmer_list_name">
+                  {user.name} <br/> {user.address}
+
+                </div>
               </li>
-            );
+            )
           })}
         </ul>
       </div>
+
       <div className="farmer_main">
         <div className="farmer_main_wrapper">
           <SearchComponent />
@@ -46,15 +92,15 @@ export default function Farmers() {
             <div className="user__card-title">Profile</div>
             <li>
               <div className="farmer_list_image">
-                <img src={`${farmers[current - 1].photo_url}`} alt="" />
+                <img src={`${farmersList[current - 1].photo_url ? farmersList[current - 1].photo_url : "/images/main-logo.png"}`} alt="" />
               </div>
               <div className="farmer_list_name">
-                <span className="name">{farmers[current - 1].user_name}</span>
-                <span className="title">{farmers[current - 1].title}</span>
+                <span className="name">{farmersList[current - 1].name}</span>
+                <span className="title">{farmersList[current - 1].address}</span>
               </div>
             </li>
             <div className="strength">
-              Profile Strength: <span>100%</span>
+              Profile Strength: <span>85%</span>
             </div>
             <div className="rating">
               <p>Rating:</p>
@@ -70,14 +116,24 @@ export default function Farmers() {
           <div className="individual_products">
             <h3 className="individual_products_title">List of Products</h3>
             <ul className="products_list">
-              {farmers[current - 1].product.map((prod, index) => {
+              {farmersProduct.map((prod, index) => {
                 return (
                   <li className="products_item" key={index}>
+                    <div className="products_item-wrapper">
                     <div className="products_item_image">
-                      <img src={`${prod.img}`} alt="" />
+                      <img src={`${url+prod.imagesName}`} alt="" />
                     </div>
-                    <div className="products_item_category">{prod.name}</div>
-                    <button className="button">view product</button>
+                    <div className="products_item_category">
+                       <h3> {prod.name} </h3>
+                       <h3> #{prod.amt} </h3>
+                       <h3> {prod.weight} kg </h3>
+                    </div>
+                    </div>
+                    <button className="button" onClick={() => added(`${prod.id}`, prod.fullbag)}>
+                    <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                     {prod.amt}
+                    </button>
+                    <button className="button">View Product</button>
                   </li>
                 );
               })}

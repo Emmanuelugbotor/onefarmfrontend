@@ -2,15 +2,15 @@
   display: flex;
   & .farmer_sidebar {
     flex: 0 1 27%;
-    padding: 30px;
+    padding: 3rem;
     background: #ffffff;
-    box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.06);
-    margin-right: 30px;
+    box-shadow: 0px .4rem 3.5rem rgba(0, 0, 0, 0.06);
+    margin-right: 3rem;
     & .logo {
-      margin-bottom: 50px;
+      margin-bottom: 5rem;
     }
     & .farmer_heading {
-      margin-bottom: 30px;
+      margin-bottom: 3rem;
       display: flex;
       align-items: center;
     }
@@ -20,8 +20,8 @@
         width: 100%;
         display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        padding: 10px;
+        margin-bottom: 2rem;
+        padding: 1rem;
         cursor: pointer;
         &.active {
           background-color: #88b22e;
@@ -30,11 +30,12 @@
           }
         }
         & .farmer_list_image {
-          width: 50px;
-          height: 50px;
+          width: 5rem;
+          height: 5rem;
           border-radius: 50%;
           overflow: hidden;
-          margin-right: 20px;
+          margin-right: 2rem; 
+          box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
           & img {
             object-fit: cover;
             width: 100%;
@@ -45,8 +46,8 @@
           font-family: Poppins;
           font-style: normal;
           font-weight: 300;
-          font-size: 15px;
-          line-height: 22px;
+          font-size: 1.5rem;
+          line-height: 2.2rem;
           color: #000000;
         }
       }
@@ -55,29 +56,29 @@
   & .farmer_main {
     flex: 0 1 73%;
     position: relative;
-    padding: 40px;
+    padding: 4rem;
     & .farmer_main_wrapper {
-      width: 500px;
+      width: 100%;
       & .user__card {
         background: #ffffff;
-        box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.07);
-        border-radius: 5px;
+        box-shadow: 0px 0px 1.4rem rgba(0, 0, 0, 0.07);
+        border-radius: .5rem;
         width: 100%;
         height: auto;
-        padding: 20px;
-        margin-top: 70px;
+        padding: 2rem;
+        margin-top: 7rem;
         & li {
           list-style-type: none;
           display: flex;
           align-items: center;
-          margin-bottom: 10px;
+          margin-bottom: 1rem;
 
           & .farmer_list_image {
-            width: 80px;
-            height: 80px;
+            width: 8rem;
+            height: 8rem;
             border-radius: 50%;
             overflow: hidden;
-            margin-right: 20px;
+            margin-right: 2rem;
             & img {
               object-fit: cover;
               width: 100%;
@@ -88,22 +89,22 @@
             display: flex;
             flex-direction: column;
             & .name {
-              margin-bottom: 5px;
+              margin-bottom: .5rem;
             }
             & .title {
               color: grey;
-              font-size: 14px;
+              font-size: 1.4rem;
             }
           }
         }
         & .user__card-title {
-          margin-bottom: 50px;
+          margin-bottom: 5rem;
 
           font-family: Poppins;
           font-style: normal;
           font-weight: 600;
-          font-size: 19px;
-          line-height: 28px;
+          font-size: 1.9rem;
+          line-height: 2.8rem;
           /* identical to box height */
 
           color: #000000;
@@ -112,10 +113,10 @@
           font-family: Poppins;
           font-style: normal;
           font-weight: 300;
-          font-size: 14px;
-          line-height: 16px;
+          font-size: 1.4rem;
+          line-height: 1.6rem;
           color: #000000;
-          margin-bottom: 10px;
+          margin-bottom: 1rem;
           & span {
             color: #88b22e;
           }
@@ -124,7 +125,7 @@
           display: flex;
           align-items: center;
           & p {
-            margin-right: 10px;
+            margin-right: 1rem;
           }
           & .rating_wrapper {
             display: flex;
@@ -136,20 +137,28 @@
         }
       }
       & .individual_products {
-        margin-top: 35px;
+        margin-top: 3.5rem;
         & h3.individual_products_title {
-          margin-bottom: 20px;
+          margin-bottom: 2rem;
         }
         & ul.products_list {
           list-style-type: none;
           & li.products_item {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            & .products_item-wrapper{
+              display:flex;
+              & .products_item_category{
+                width:15rem;
+              }
+            }
             & .products_item_image {
-              width: 100px;
-              height: 50px;
-              margin-right: 20px;
+              width: 10rem;
+              height: 5rem;
+              margin-right: 2rem;
+              box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.3);
               & img {
                 width: 100%;
                 height: 100%;
@@ -157,17 +166,17 @@
               }
             }
             & button.button {
-              margin-left: auto;
+              // margin-left: auto;
               font-family: Poppins;
               font-style: normal;
               font-weight: 500;
-              font-size: 13px;
-              line-height: 22px;
+              font-size: 1.3rem;
+              line-height: 2.2rem;
               background: #88b22e;
-              border-radius: 4px;
+              border-radius: .4rem;
               color: #ffffff;
               border: none;
-              padding: 10px;
+              padding: 1rem;
             }
           }
         }

@@ -9,7 +9,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 // import SearchIcon from "@mui/icons-material/Search";
 // import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import { NavLink, Routes, Route, useLocation } from "react-router-dom";
+import { NavLink, Routes, Route, useLocation, Link } from "react-router-dom";
 import FarmerDashMain from "../farmerDashMain/farmerDashMain";
 import SearchNotification from "../../component/SearchNotification/SearchNotification";
 import FarmerDashAdd from "../farmerDashAdd/FarmerDashAdd";
@@ -32,8 +32,10 @@ export default function FarmerDashboard() {
   return (
     <div className="farmerDash">
       <div className="farmerDashboard_left">
-        <div className="logo">
+        <div  className="logo">
+          <Link to={"/"}>
           <img src="/images/main-logo.png" alt="main-logo" />
+          </Link>
         </div>
         <ul className="farmerDashboard_left_list">
           
@@ -74,7 +76,7 @@ export default function FarmerDashboard() {
             </li>
           </NavLink>
 
-          <NavLink
+          {/* <NavLink
             to="subscribe"
             className={(navData) =>
               "nav-link " + (navData.isActive ? "active" : "")
@@ -109,7 +111,7 @@ export default function FarmerDashboard() {
               <span>E-learning</span>
             </li>
           </NavLink>
-
+ */}
           <NavLink
             to="settings"
             className={(navData) =>

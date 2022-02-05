@@ -3,25 +3,25 @@
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 45px;
+    font-size: 3rem;
+    line-height: 4.5rem;
     color: #000000;
   }
   & .details {
-    margin-bottom: 50px;
+    margin-bottom: 5rem;
   }
   & .packages {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    gap: 4rem;
     & .precious {
-      height: 386px;
+      height: 38.6rem;
       background: #eeeeee;
-      border-radius: 10px;
+      border-radius: 1rem;
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      padding: 2rem;
       &.gold {
         background: #ffd700;
       }

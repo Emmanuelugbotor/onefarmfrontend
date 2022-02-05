@@ -1,21 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Navbar.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import MenuIcon from "@mui/icons-material/Menu";
 import SideNav from "../sideNav/sideNav";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
 export default function Navbar() {
+  const userSignin = useSelector((state) => state.userSignIn);
+  const { userInfo } = userSignin;
+
   const [home, setHome] = useState(false);
+
   function handleClicked() {
     setHome(false);
   }
+  useEffect(()=>{
+
+  }, [userInfo, userSignin])
   return (
     <div>
       <header className="header">
         <MenuIcon className="hamburger_menu" onClick={() => setHome(true)} />
-        <div className="company_logo">
+        <Link className="company_logo" to={"/"}>
           <img src="/images/main-logo.png" alt="" className="header__logo" />
-        </div>
+        </Link>
         <nav className="navigation">
           <ul>
             <li>
@@ -24,15 +34,15 @@ export default function Navbar() {
               </Link>
             </li>
 
-            <li>
+            {/* <li>
               <Link to="/shop" className="link">
                 Shop
               </Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to="/about-us" className="link">
-                About Us
+                About
               </Link>
             </li>
 
@@ -44,7 +54,7 @@ export default function Navbar() {
 
             <li>
               <Link to="/contact-us" className="link">
-                Contact us
+                Contact
               </Link>
             </li>
             <li>
@@ -54,27 +64,57 @@ export default function Navbar() {
             </li>
           </ul>
         </nav>
+
         <div className="nav__right">
-          <button className="login__button">
-            <img
-              src="/images/user (1).png"
-              alt=""
-              className="login__button__image"
-            />
-            <Link to="/loginPage" className="link">
-              <p className="login__button__text">Login</p>
-            </Link>
-          </button>
-          <button className="signup__button">
-            <img
-              src="/images/add-user (1).png"
-              alt=""
-              className="signup__button__image"
-            />
-            <Link to="/signUpPage" className="link">
-              <p className="signup__button__text">Signup</p>
-            </Link>
-          </button>
+          {userInfo && userInfo.token ? (
+            userInfo.role == "farmer" ? (
+              <button className="login__button">
+                <img
+                  src="/images/user (1).png"
+                  alt=""
+                  className="login__button__image"
+                />
+                <Link to="/dashboard" className="link">
+                  <p className="login__button__text">Dashboard</p>
+                </Link>
+              </button>
+            ) : (
+              <button className="login__button">
+                <img
+                  src="/images/user (1).png"
+                  alt=""
+                  className="login__button__image"
+                />
+                <Link to="/vendor_dashboard" className="link">
+                  <p className="login__button__text">Vendor</p>
+                </Link>
+              </button>
+            )
+          ) : (
+            <>
+              <button className="login__button">
+                <img
+                  src="/images/user (1).png"
+                  alt=""
+                  className="login__button__image"
+                />
+                <Link to="/loginPage" className="link">
+                  <p className="login__button__text">Login</p>
+                </Link>
+              </button>
+              <button className="signup__button">
+                <img
+                  src="/images/add-user (1).png"
+                  alt=""
+                  className="signup__button__image"
+                />
+                <Link to="/signUpPage" className="link">
+                  <p className="signup__button__text">Signup</p>
+                </Link>
+              </button>
+            </>
+          )}
+
           <form className="search__form">
             <input
               type="search"
@@ -89,8 +129,8 @@ export default function Navbar() {
               src="/images/cart-11-24.png"
               alt=""
               className="header__basket"
-            />{" "}
-            <p className="header__basket__text">Basket</p>
+            />
+            {/* <p className="header__basket__text">Basket</p> */}
           </div>
         </div>
         {home && <SideNav handleClicked={handleClicked} />}
