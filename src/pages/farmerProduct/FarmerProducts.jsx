@@ -7,6 +7,8 @@ import "./FarmerProducts.scss";
 import Alert from "../../component/Alert/Alert";
 import { getProducts } from "../../redux/actions/productAction";
 import { url } from "../../constant/url";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const { allProduct } = Data;
 
@@ -22,7 +24,7 @@ export default function FarmerProducts() {
   const { userInfo } = userSignin;
   const { products, loading, error } = getProduct;
 
-  const [farmer_products, setProducts] = useState(allProduct);
+  const [farmer_products, setProducts] = useState([]);
   const [initiate, setInitiate] = useState(false);
   const [status, setStatus] = useState(false);
 
@@ -41,12 +43,13 @@ export default function FarmerProducts() {
     //   .catch((error) => console.log(error), setFeatured([]));
     
     dispatch(getProducts());
-  }, [0]);
+  }, [dispatch]);
 
 
-  const [products, setProducts] = useState(allProduct);
-  const [initiate, setInitiate] = useState(false);
-  const [status, setStatus] = useState(false);
+  // const [farmer_products, setProducts] = useState(allProduct);
+  // const [initiate, setInitiate] = useState(false);
+  // const [status, setStatus] = useState(false);
+
   const [id, setId] = useState(0);
 
   const columns = [
@@ -155,15 +158,16 @@ export default function FarmerProducts() {
         setStatus(false);
     }
   }, [status, id, products]);
-  
+
   return (
     <div className="farmerProducts">
+      
       {farmer_products && (
         <DataGrid
           rows={farmer_products}
           columns={columns}
-          pageSize={6}
-          rowsPerPageOptions={[5]}
+          pageSize={10}
+          rowsPerPageOptions={[10]}
           checkboxSelection
           disableSelectionOnClick
           //   getRowId={(r) => r._id}

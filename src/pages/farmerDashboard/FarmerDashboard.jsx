@@ -18,7 +18,7 @@ import FarmerSubscribe from "../farmerSuscribe/farmerSubscribe";
 import FarmersSetting from "../farmersSetting/farmersSetting";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../redux/actions/usersAction";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 

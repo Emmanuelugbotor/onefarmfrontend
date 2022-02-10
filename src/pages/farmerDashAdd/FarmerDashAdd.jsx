@@ -3,6 +3,8 @@ import ResponseSuccess from "../../component/responseSuccess/responseSuccess";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postProducts } from "../../redux/actions/productAction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function FarmerDashAdd() {
   let dispatch = useDispatch();
@@ -44,9 +46,10 @@ export default function FarmerDashAdd() {
     dispatch(postProducts(formInfo, userInfo));
     if (products) {
       setToggle(!toggle);
-      setFeedBack(`${products.msg}`);
+      toast("Product uploaded successfully")
     }
     if (error) {
+      toast("Network Error, try again")
       setError(error);
     }
   }
@@ -59,19 +62,11 @@ export default function FarmerDashAdd() {
 
   return (
     <div className="farmer_add_product">
+      <ToastContainer />
       <h1 className="farmer_add_product-title">Add Products</h1>
-      {feedbackErr && (
-        <h5 className="farmer_add_product-title" style={{ color: "red" }}>
-          {" "}
-          {feedbackErr}{" "}
-        </h5>
-      )}
-      {feedback && (
-        <h5 className="farmer_add_product-title" style={{ color: "green" }}>
-          {" "}
-          {feedback}{" "}
-        </h5>
-      )}
+     
+     
+      
 
       <form onSubmit={(e) => handleSubmit(e)}>
         <div className="form_wrapper">
@@ -196,8 +191,8 @@ export default function FarmerDashAdd() {
             className="farmer_add_product-title"
             style={{ color: "red", marginTop: "2rem", marginLeft: "1rem" }}
           >
-            {" "}
-            {feedbackErr}{" "}
+            
+            {feedbackErr}
           </h5>
         )}
       </form>
