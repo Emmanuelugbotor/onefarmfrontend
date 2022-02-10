@@ -21,6 +21,8 @@ import {
   userValidateOtpPass,
 } from "./reducers/usersReducer";
 
+import { vendorRegisterReducer, vendorSignInReducer } from "./reducers/vendorReducers";
+
 import { orderCreateReducer } from "./reducers/orderReducers";
 const reducers = combineReducers({
   cart: cartReducer,
@@ -35,6 +37,9 @@ const reducers = combineReducers({
   userChangePass: userChangePassReducer,
   changePass: userValidateOtpPass,
   userChangeDetails: userChangeDetailsReducer,
+  
+  vendorSignIn: vendorSignInReducer,
+  vendorRegister: vendorRegisterReducer,
 });
 
 const middleware = { thunk };
@@ -51,6 +56,9 @@ const cartFromLocalStorage = localStorage.getItem("cart")
 const userSignIn = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   : [];
+const vendorSignIn = localStorage.getItem("vendorInfo")
+  ? JSON.parse(localStorage.getItem("vendorInfo"))
+  : [];
 const shippingAdress = localStorage.getItem("shippingAddress")
   ? JSON.parse(localStorage.getItem("shippingAddress"))
   : [];
@@ -62,12 +70,15 @@ const userChangePass = localStorage.getItem("changePass")
   : {};
 
 const INITIAL_CART_STATE = {
+
   cart: { cartItems: cartFromLocalStorage, shippingAdress: shippingAdress },
   userSignIn: { userInfo: userSignIn },
+  vendorSignIn: { vendorInfo: vendorSignIn },
   getProduct: { products: productsFromLocalStorage },
   postProduct: { products: postProduct },
   userChangeEmail: { emailChange: userChangeEmail },
   userChangePass: { changePass: userChangePass },
+  
 };
 
 const store = createStore(

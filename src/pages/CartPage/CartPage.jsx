@@ -11,59 +11,119 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { pagination } from "../../paginateFunction";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { createOrder } from "../../redux/actions/orderActions";
+import { useFlutterwave, closePaymentModal, FlutterWaveButton } from 'flutterwave-react-v3';
+
 import { url } from "../../constant/url";
 
 export default function CartPage() {
+
+  let dispatch = useDispatch()
+
+  // import { useFlutterwave, closePaymentModal, FlutterWaveButton } from 'flutterwave-react-v3';
+
+  // public_key: 'FLWPUBK_TEST-c2c93645ec804dcafa80ccaf15bb4acd-X',
+
+  //public_key: 'FLWPUBK-93f72abbb910f3df3c4dbc960feb93c6-X',
+
+  
+
+ 
+
   let totalPrice = 0;
   let cartItems = useSelector((state) => state.cart);
   let numOfCartItems = cartItems.cartItems.length;
-  cartItems.cartItems.forEach(
-    (items, index) => {
-      totalPrice += parseInt(items.sellingPrice)
-      console.log("this is the total price ", totalPrice)
-      console.log("this is the total sellingPrice ", items.sellingPrice)
-    }
-  );
+  cartItems.cartItems.forEach((items, index) => {
+    totalPrice += parseInt(items.sellingPrice);
+  });
 
   let cartRemover = RemoveFromCart(useDispatch);
   let addToCart = AddToCard(useDispatch, useSelector);
 
-  // handle the paginate and reduction function....
-  const [paginate, setPaginate] = useState(1);
-  const [productData, setProductData] = useState([]);
-  const [show, setShow] = useState(false);
-  const [productInfo, setProductInfo] = useState();
-  // determine the pagination condition...
-  const total = cartItems.cartItems.length;
-  const pageCount = 3;
-  const pageSize = Math.ceil(total / pageCount);
-  // console.log(pageSize);
+  let x = {status: 'successful', 
+  transaction_id: 3115978, tx_ref: 1644405793586,
+   flw_ref: 'FLW-MOCK-c28b857d2fe16463c0e7dd493550f141',
+ 
+ amount: 933,
+ currency: "NGN",
+ customer: {name: 'Emmanuel Ugbotor ', email: 'emmanuelugbotor@gmail.com', phone_number: '08065099558'},
+ flw_ref: "FLW-MOCK-c28b857d2fe16463c0e7dd493550f141",
+ redirectstatus: undefined,
+ status: "successful",
+ transaction_id: 3115978,
+ tx_ref: 1644405793586
+ }
 
-  function handleIncrement() {
-    if (paginate < pageSize) {
-      setPaginate(paginate + 1);
-    }
-  }
-  function handleReduction() {
-    if (paginate > 1) {
-      setPaginate(paginate - 1);
-    }
-  }
+  const placeOrderHandler = (response) =>
+{
+  
+  console.log("this is the frontend response data ", cartItems)
+  dispatch(createOrder(response, cartItems.cartItems))
+}
+console.log(cartItems)
+console.log("cartItems", cartItems.cartItems)
+   
+// handle the paginate and reduct ion function....
+const [paginate, setPaginate] = useState(1);
+const [productData, setProductData] = useState([]); 
+const [show, setShow] = useState(false); 
+const [productInfo, setProductInfo] = useState();
+// determine the pagination condition...
+const total = cartItems.cartItems.length;
+const pageCount = 3;
+const pageSize = Math.ceil(total / pageCount);
+// console.log(pageSize);
 
-  const showDetails = (items) => {
-    setShow(true);
-    setProductInfo(items);
-  };
-  const hideDetails = () => {
-    setShow(!show);
-  };
+function handleIncrement() {
+  if (paginate < pageSize) {
+    setPaginate(paginate + 1);
+  }
+}
+function handleReduction() {
+  if (paginate > 1) {
+    setPaginate(paginate - 1);
+  }
+}
+
+const showDetails = (items) => {
+  setShow(true);
+  setProductInfo(items);
+};
+const hideDetails = () => {
+  setShow(!show);
+};
+
+const config = {
+  
+  public_key: "FLWPUBK_TEST-c2c93645ec804dcafa80ccaf15bb4acd-X",
+  tx_ref: Date.now(),
+  amount: totalPrice,
+  currency: "NGN",
+  payment_options: "card, ussd, bank",
+  customer: {
+    email: `emmanuelugbotor@gmail.com`,
+    phone_number: `08065099558`,
+    name: `emmanuel ugbotor`,
+  },
+  
+  // meta:{
+    //   ShippingAddress: ShippingAddress
+    // },
+    
+    customizations: {
+      title: "OneFarmTech CheckOut",
+      description: "Payment for items in cart",
+      logo: "https://onefarmtech.com/images/logo.png",
+    },
+  }; 
+  
+  const handleFlutterPayment = useFlutterwave(config);
   
   useEffect(() => {
-
+    
     const product = pagination(pageCount, cartItems.cartItems, paginate);
     setProductData(product);
-
-  }, [paginate, cartItems]);
+  }, [paginate, cartItems, ]);
 
   return (
     <div className="cart">
@@ -82,7 +142,9 @@ export default function CartPage() {
                       <img src={`${url + item.image}`} alt="" />
                     </div>
                     <div className="name_details">
-                      <div className="name">{item.name.replace("_", "  ").toUpperCase()}</div>
+                      <div className="name">
+                        {item.name.replace("_", "  ").toUpperCase()}
+                      </div>
                       <div className="details">
                         <button onClick={() => showDetails(item)}>
                           view details
@@ -168,7 +230,34 @@ export default function CartPage() {
             </Link>
           </button>
 
-          <button className="check_out">Check out</button>
+          {/* <button className="check_out">Check out</button> */}
+          <button
+            className="check_out"
+            type="button"
+            onClick={() => {
+              handleFlutterPayment({
+                callback: async (response) => {
+                  if (response.status == "successful") {
+                    console.log("REQUEST DATA CAME IN HERE : ");
+                    console.log("REACT FRONTEND RESPONDE", response);
+                    // setRedirectStatus(true);
+                    await placeOrderHandler(response);
+                    alert("YOUR PAYMENT WAS SUCCESSFUL")
+                  } else {
+                    alert("Network Error,  Try again");
+                  }
+                },
+
+                onClose: () => {
+                  alert("You cancelled the payment session")
+                  closePaymentModal();
+                },
+
+              });
+            }}
+          >
+            Pay Now
+          </button>
         </div>
       </div>
 

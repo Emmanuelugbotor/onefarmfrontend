@@ -1,31 +1,40 @@
 import axios from 'axios';
 import { CART_RESET } from '../constants/cartConstant';
 import * as actionTypes from "../constants/orderConstants"
-import url from '../../constant/url';
+import {url} from '../../constant/url';
 
-export const createOrder = (response, cartItems, shippingAddress)=> async (dispatch, getState)=>{
+export const createOrder = (response, cartItems)=> async (dispatch, getState)=>{
+    
     dispatch({
+        
         type: actionTypes.ORDER_CREATE_REQUEST,
-        payload: { response, cartItems, shippingAddress  }
+        payload: { response, cartItems  }
+        
     })
+
     try {
         
-        const { userSignIn: {userInfo},} = getState();
-        const { data } = await axios.post(`${url}orders`, {response, cartItems, shippingAddress}, {
+        const { vendorSignIn: {vendorInfo},} = getState();
+        // console.log("__________________________________________ ", vendorInfo)
+        const { data } = await axios.post(`${url}orders`, {response, cartItems}, {
             headers:{ 
-                Authorization: `Bearer ${userInfo.token}`
+                Authorization: `Bearer ${vendorInfo.token}`
             }
         });
+        console.log("this i sthe order respnsed data ", cartItems)
         
         dispatch({type: actionTypes.ORDER_CREATE_SUCCESS,  payload: data  })
         dispatch({type: CART_RESET})
-        localStorage.removeItem("cart") 
+        if(data){
 
+            localStorage.removeItem("cart");
+        }
+          
     } catch (error) {
-        console.log(error.response)
+        // console.log(error.response) 
         dispatch({
             type: actionTypes.ORDER_CREATE_FAIL,
-            payload: error.response.data.error
+            payload: error.response 
         })  
     }
 }

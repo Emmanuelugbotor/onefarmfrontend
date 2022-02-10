@@ -1,0 +1,94 @@
+.farmerDashMain_container {
+  & .name_welcome {
+    margin-bottom: 40px;
+    & h1.name {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 3rem;
+      line-height: 4.5rem;
+      margin-bottom: .5rem;
+    }
+    & .welcome {
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: 300;
+      font-size: 1.5rem;
+      line-height: 1.9rem;
+      color: rgba(0, 0, 0, 0.35);
+    }
+  }
+  & .card_one {
+    width: 70rem;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    background: rgba(236, 201, 179, 0.13);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    & .card_one_item {
+      display: flex;
+      flex-direction: column;
+      & * {
+        margin-bottom: 2rem;
+      }
+      & span {
+        &:last-of-type {
+          color: #000;
+          font-family: Poppins;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 3.6rem;
+          line-height: 5.4rem;
+          /* identical to box height */
+        }
+      }
+    }
+  }
+  & .card_two {
+    max-width: 70rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    & .card_two_item {
+      flex: 0 1 50%;
+      min-height: 16rem;
+      background: #effdef;
+      border-radius: .7rem;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & .left {
+        & span {
+          margin-bottom: 1rem;
+          font-weight: 600;
+          font-size: 2rem;
+        }
+        & p {
+          margin-bottom: 1rem;
+        }
+        & strong {
+          margin-bottom: 1rem;
+          font-weight: 600;
+          font-size: 2rem;
+        }
+      }
+
+      &:first-of-type {
+        margin-right: 4rem;
+        background: #ffefe2;
+      }
+      &.blue {
+        background: #e6f5fa;
+      }
+      &.ash {
+        background: #f4f5f9;
+      }
+    }
+  }
+}

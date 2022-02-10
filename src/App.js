@@ -15,12 +15,17 @@ import FarmerDashboard from "./pages/farmerDashboard/FarmerDashboard";
 import Payment from "./pages/payment/Payment";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/signUp/SignUp";
-import { Provider, useSelector } from "react-redux";
-import store from "../src/redux/store";
+
 import SuperLoginPage from "./pages/superAdminRoutes/adminLogin/login";
 import SuperRegisterPage from "./pages/superAdminRoutes/adminRegister/adminRegister";
 import AdminDashboard from "./pages/superAdminRoutes/adminDashboard/adminDashboard";
 import Address from './pages/Address/Address'
+import { Provider, useSelector } from "react-redux";
+import store from "../src/redux/store";
+
+import VendorSignUp from "./pages/vendors/vendor_signup"
+import VendorLogin from "./pages/vendors/Login"
+import VendorDashboard from "./pages/vendors/VendorDashboard";
 // import CheckoutPage from "../src/"
 function App() {
   return (
@@ -49,7 +54,22 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          {/*  VENDORS SECTIONS  */}
+          <Route
+            path="/vendor/*"
+            element={
+              <VendorPrivateRoute>
+                <VendorDashboard />
+              </VendorPrivateRoute>
+            }
+          />
+
+            <Route path="/buyers_SignUpPage" element={<VendorSignUp />} />
+            <Route path="/buyers_LoginPage" element={<VendorLogin />} />
+
           {/* Super Admin Section.. */}
+
           <Route path="/admin_login" element={<SuperLoginPage />} />
           <Route path="/admin_register" element={<SuperRegisterPage />} />
           <Route path="/admin_dashboard/*" element={<AdminDashboard />} />
@@ -67,4 +87,15 @@ const PrivateRoute = ({ children }) => {
   if (userInfo && userInfo.token) return children;
   return <Navigate to="/farmer_LoginPage" />;
 };
+
+const VendorPrivateRoute = ({ children }) => {
+  console.log("this is the length of the children ", children.length)
+  
+  const vendorSignIn = useSelector((state) => state.vendorSignIn);
+  const { vendorInfo, loading, error, success } = vendorSignIn;
+  if (vendorInfo && vendorInfo.token && vendorInfo.role === "vendor") return children;
+  return <Navigate to="/buyers_LoginPage" />;
+};
+
+
 export default App;

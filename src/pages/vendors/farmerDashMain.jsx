@@ -3,25 +3,27 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function FarmerDashMain() {
   
-  const userSignin = useSelector((state) => state.userSignIn);
-  const { userInfo } = userSignin;
+  const vendorSignIn = useSelector((state) => state.vendorSignIn);
+  const notify = () => toast("Wow so easy!");
 
-  useEffect(()=>{
 
-  }, [])
+  console.log("tis is te vendor testsing ", vendorSignIn)
+  const { vendorInfo, loading, error, success } = vendorSignIn;
   return (
     <div className="farmerDashMain_container">
       <div className="name_welcome">
-        <h1 className="name">Hi {userInfo.name}</h1>
+        <h1 className="name">Hi {vendorInfo.name}</h1>
         <div className="welcome">Welcome !</div>
       </div>
       <div className="card_one">
         <div className="card_one_item">
           <RemoveRedEyeIcon />
-          <span>products</span>
+          <span>view</span>
           <span>000</span>
         </div>
         <div className="card_one_item">

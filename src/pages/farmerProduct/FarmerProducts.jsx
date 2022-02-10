@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "./FarmerProducts.scss";
 import Alert from "../../component/Alert/Alert";
 import { getProducts } from "../../redux/actions/productAction";
+import { url } from "../../constant/url";
 
 const { allProduct } = Data;
 
@@ -15,13 +16,24 @@ export default function FarmerProducts() {
   
   
   const getProduct = useSelector((state) => state.getProduct);
-
+  const userSignin = useSelector((state) => state.userSignIn);
+  
   const [feature, setFeatured] = useState([]);
   const [category, setCategory] = useState([]);
-  // const { products, loading, error } = getProduct;
 
+  const { userInfo } = userSignin;
+  const { products, loading, error } = getProduct;
 
+  const [farmer_products, setProducts] = useState(allProduct);
+  const [initiate, setInitiate] = useState(false);
+  const [status, setStatus] = useState(false);
+
+  
   useEffect(() => {
+    if(products){
+      const newProducts = [...products].filter((c) => c.farmer_id == userInfo.id);
+      setProducts(newProducts);
+    }
     // axios
     //   .get(`${url}getproducts`)
     //   .then((res) => {
@@ -29,14 +41,15 @@ export default function FarmerProducts() {
     //     setCategory(res.data.items);
     //   })
     //   .catch((error) => console.log(error), setFeatured([]));
+    
     dispatch(getProducts());
-  }, [dispatch]);
+  }, [0]);
 
-  const [products, setProducts] = useState(allProduct);
-  const [initiate, setInitiate] = useState(false);
-  const [status, setStatus] = useState(false);
+
 
   const columns = [
+
+
     {
       field: "img",
       headerName: "IMG",
@@ -45,7 +58,7 @@ export default function FarmerProducts() {
         return (
           <div className="productListItem">
             <img
-              src={`${params.row.img}`}
+              src={`${url+params.row.imagesName}`}
               alt="img_product"
               className="productListImg"
             />
@@ -54,9 +67,31 @@ export default function FarmerProducts() {
         );
       },
     },
-    { field: "id", headerName: "ID", width: 120 },
-    { field: "title", headerName: "Title", width: 150 },
-    { field: "price", headerName: "Price", width: 150 },
+    // { field: "id", headerName: "ID", width: 120 },
+    { field: "title", headerName: "Title", width: 150, 
+    renderCell: (params) => {
+      return (
+        <div className="productModify">
+          <p >
+        {`${params.row.category}`}
+          </p>
+        </div>
+      );
+    },
+  
+  },
+    { field: "price", headerName: "Price", width: 150,
+    renderCell: (params) => {
+      return (
+        <div className="productModify">
+          
+           
+            <p className=""># {`${params.row.fullbag}`}</p>
+          
+        </div>
+      );
+    },
+  },
 
     {
       field: "modify",
@@ -94,10 +129,10 @@ export default function FarmerProducts() {
   // handling the temporal removal of data and updating the state...
   // const [data, setData] = useState(productRows);
 
-  function handleDelete(id) {
+  const handleDelete = (id) => {
     setInitiate(!initiate);
     if (status) {
-      const newProducts = [...products].filter((c) => c.id !== id);
+      const newProducts = [...farmer_products].filter((c) => c.id !== id);
       setProducts(newProducts);
     }
     setStatus(false);
@@ -117,11 +152,13 @@ export default function FarmerProducts() {
     setInitiate(!initiate);
   }
 
+  
+
   return (
     <div className="farmerProducts">
-      {products && (
+      {farmer_products && (
         <DataGrid
-          rows={products}
+          rows={farmer_products}
           columns={columns}
           pageSize={8}
           rowsPerPageOptions={[5]}

@@ -5,16 +5,15 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import FormLeft from "../../component/formLeft/FormLeft";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { signin } from "../../redux/actions/usersAction";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { signin } from "../../redux/actions/vendorsAction";
 
-export default function Login() {
+export default function VendorLogin() {
   let dispatch = useDispatch();
   let navigate = useNavigate();
 
-  const userSignin = useSelector((state) => state.userSignIn);
-  const { userInfo, loading, error, success } = userSignin;
+  const vendorSignIn = useSelector((state) => state.vendorSignIn);
+
+  const { vendorInfo, loading, error, success } = vendorSignIn;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,19 +25,17 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if ((userInfo && userInfo.id > 0) || success) {
-      navigate("/dashboard");
+    if ((vendorInfo && vendorInfo.id > 0) || success) {
+      navigate("/vendor");
     }
-    if(error)  toast("Incorrect username or password")
-  }, [dispatch, error, userInfo]);
+  }, [dispatch, error, vendorInfo]);
 
   return (
     <form className="login" onSubmit={(e) => submitHandler(e)}>
-      <ToastContainer/>
       <FormLeft />
       <div className="login_right">
         <div className="login_right_title">Login</div>
-        {/* {error ?  toast("Incorrect username or password"): null} */}
+        {error && <h4 style={{ color: "red" }}>{error}</h4>}
         <div className="input_form">
           <input
             type="text"
@@ -58,7 +55,7 @@ export default function Login() {
         <input type="submit" value="Login" />
         <div className="form_redirection">
           Don’t Have an account
-          <Link to="/farmer_signUpPage" className="link">
+          <Link to="/buyers_SignUpPage" className="link">
             Signup
           </Link>
         </div>

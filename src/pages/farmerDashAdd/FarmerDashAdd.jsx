@@ -12,7 +12,7 @@ export default function FarmerDashAdd() {
   const { userInfo } = userSignin;
 
   const prostPro = useSelector((state) => state.postProduct);
-  console.log("PRODUCTS ", prostPro);
+  // console.log("PRODUCTS ", prostPro);
   const {products, error } = prostPro;
  
 

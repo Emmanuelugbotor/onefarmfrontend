@@ -5,17 +5,19 @@ import FormLeft from "../../component/formLeft/FormLeft";
 import http from "../../services/httpServices";
 import { BASE_URL } from "../../constant/url";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../redux/actions/usersAction";
+
+import { register } from "../../redux/actions/vendorsAction";
 
 export default function VendorSignUp() {
+
   let navigate = useNavigate();
   let dispatch = useDispatch();
 
-  const userSignin = useSelector((state) => state.userSignIn);
-  const userRegister = useSelector((state) => state.userRegister);
+  const vendorSignIn = useSelector((state) => state.vendorSignIn);
+  const vendorRegister = useSelector((state) => state.vendorRegister);
 
-  const { userInfo, loading, error, success } = userSignin;
-  const { reguserInfo, regloading, regerror, regsuccess } = userRegister;
+  const { vendorInfo, loading, error, success } = vendorSignIn;
+  const { reguserInfo, regloading, regerror, regsuccess } = vendorRegister;
 
   const [email, setEmail] = useState("");
   const [address, setAddr] = useState("");
@@ -27,15 +29,17 @@ export default function VendorSignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let body = { fullname, address, email, number, password };
+    console.log("this is the request vendor body, ", body)
     dispatch(register(body));
   };
 
   useEffect(() => {
-    if ((userInfo && userInfo.id > 0) || regsuccess || success)
-      navigate("/dashboard");
-  }, [dispatch, userSignin, error, userInfo, success]);
+    if ((vendorInfo && vendorInfo.id > 0) || regsuccess || success)
+      navigate("/vendor");
+  }, [dispatch, vendorSignIn, error, vendorInfo, success]);
 
   return (
+    
     <div className="signUp">
       <FormLeft />
       <div className="signup_right">
@@ -70,7 +74,7 @@ export default function VendorSignUp() {
               onChange={(e) => setAddr(e.target.value)}
               required={true}
             />
-            <label htmlFor="">Farm Address</label>
+            <label htmlFor=""> Address</label>
           </div>
           <div className="input_form">
             <input
@@ -102,8 +106,8 @@ export default function VendorSignUp() {
             <input type="submit" value="sign-up" required={true} />
           </div>
           <div className="form_redirection">
-            Already Have an account?
-            <Link to="/farmer_LoginPage" className="link">
+            Already Have an account ?
+            <Link to="/buyers_LoginPage" className="link">
               Login
             </Link>
           </div>

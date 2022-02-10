@@ -1,4 +1,4 @@
-import "./FarmerDashboard.scss";
+import "./VendorDashboard.scss";
 import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import HomeIcon from "@mui/icons-material/Home";
@@ -10,18 +10,24 @@ import CardMembershipIcon from "@mui/icons-material/CardMembership";
 // import SearchIcon from "@mui/icons-material/Search";
 // import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { NavLink, Routes, Route, useLocation, Link } from "react-router-dom";
-import FarmerDashMain from "../farmerDashMain/farmerDashMain";
+import FarmerDashMain from "./farmerDashMain";
 import SearchNotification from "../../component/SearchNotification/SearchNotification";
 import FarmerDashAdd from "../farmerDashAdd/FarmerDashAdd";
 import FarmerProducts from "../farmerProduct/FarmerProducts";
 import FarmerSubscribe from "../farmerSuscribe/farmerSubscribe";
 import { useDispatch } from "react-redux";
-import { signOut } from "../../redux/actions/usersAction";
+import { signOut } from "../../redux/actions/vendorsAction";
 import { useEffect } from "react";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function FarmerDashboard() {
+  
+
+export default function VendorDashboard() {
+  
+  
+  const notify = () => toast("This feature is coming out soon");
 
   const dispatch = useDispatch();
   const { pathname } = useLocation();
@@ -34,7 +40,7 @@ export default function FarmerDashboard() {
   
   return (
     <div className="farmerDash">
-      <ToastContainer/>
+      <ToastContainer />
       <div className="farmerDashboard_left">
         <div  className="logo">
           <Link to={"/"}>
@@ -47,7 +53,7 @@ export default function FarmerDashboard() {
             to=""
             className={(navData) =>
               "nav-link " +
-              (navData.isActive && pathname === "/dashboard" ? "active" : "")
+              (navData.isActive && pathname === "/vendor" ? "active" : "")
             }
           >
             <li className="farmerDashboard_left_item ">
@@ -80,11 +86,7 @@ export default function FarmerDashboard() {
             </li>
           </NavLink>
 
-          <div
-            onClick={()=> toast("This feature is coming out soon")}
-            style={{
-              cursor: "pointer"
-            }}
+          <NavLink
             to="subscribe"
             className={(navData) =>
               "nav-link " + (navData.isActive ? "active" : "")
@@ -94,13 +96,9 @@ export default function FarmerDashboard() {
               <CardMembershipIcon className="icon" />
               <span>Suscribe</span>
             </li>
-          </div>
+          </NavLink>
 
-          <div
-            onClick={()=> toast("This feature is coming out soon")}
-            style={{
-              cursor: "pointer"
-            }}
+          <NavLink
             to="chat"
             className={(navData) =>
               "nav-link " + (navData.isActive ? "active" : "")
@@ -110,19 +108,16 @@ export default function FarmerDashboard() {
               <ChatIcon className="icon" />
               <span>Chat</span>
             </li>
-          </div>
+          </NavLink>
 
           <div
             // to="e-learning"
-            style={{
-              cursor: "pointer"
-            }}
-            onClick={()=> toast("This feature is coming out soon")}
+            onClick={()=>notify()}
             className={(navData) =>
               "nav-link " + (navData.isActive ? "active" : "")
             }
           >
-            <li className="farmerDashboard_left_item">
+            <li className="farmerDashboard_left_item"  >
               <SchoolIcon className="icon" />
               <span>E-learning</span>
             </li>
