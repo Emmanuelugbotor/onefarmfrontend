@@ -7,7 +7,7 @@ import NotFound from "./pages/notFound/NotFound";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import Faq from "./pages/FAQ/Faq";
 import SIgnUpPage from "./pages/SignUpPage/SIgnUpPage";
-import ContactUsPage from "./pages/contactUsPage/ContactUsPage";
+// import ContactUsPage from "./pages/contactUsPage/ContactUsPage";
 import Shop from "./pages/Shop/Shop";
 import Farmers from "./pages/farmers/Farmers";
 import CartPage from "./pages/CartPage/CartPage";
@@ -26,6 +26,7 @@ import store from "../src/redux/store";
 import VendorSignUp from "./pages/vendors/vendor_signup"
 import VendorLogin from "./pages/vendors/Login"
 import VendorDashboard from "./pages/vendors/VendorDashboard";
+import ContactUsMain from './pages/contactUsPageMain/contactUsMain'
 // import CheckoutPage from "../src/"
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/signUpPage" element={<SIgnUpPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/contact-us" element={< ContactUsMain  />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/farmers" element={<Farmers />} />

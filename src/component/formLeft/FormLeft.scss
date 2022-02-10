@@ -3,13 +3,21 @@
   display: flex;
   flex-direction: column;
   // border: 1px solid red;
+
   height: 100vh;
   padding: 4rem;
   background: rgba(136, 178, 46, 0.09);
-  box-shadow: .9rem 0px 1.3rem rgba(0, 0, 0, 0.05);
+  box-shadow: 0.9rem 0px 1.3rem rgba(0, 0, 0, 0.05);
+  @media screen and (max-width: 46.5em) {
+    display: none;
+  }
   & .login_logo {
     margin: 0 auto;
     margin-bottom: 7rem;
+    @media screen and (max-width: 51.625em) {
+      margin-bottom: 8rem;
+      margin-top: 4rem;
+    }
     & img {
       width: 100%;
     }

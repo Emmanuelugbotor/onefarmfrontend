@@ -7,7 +7,7 @@
       font-weight: bold;
       font-size: 3rem;
       line-height: 4.5rem;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
     & .welcome {
       font-family: Poppins;
@@ -28,6 +28,10 @@
     background: rgba(236, 201, 179, 0.13);
     border-radius: 1rem;
     margin-bottom: 2rem;
+    @media screen and (max-width: 61.125em) {
+      max-width: 100%;
+      width: 100%;
+    }
     & .card_one_item {
       display: flex;
       flex-direction: column;
@@ -54,11 +58,15 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2rem;
+    @media screen and (max-width: 61.125em) {
+      max-width: 100%;
+      width: 100%;
+    }
     & .card_two_item {
       flex: 0 1 50%;
       min-height: 16rem;
       background: #effdef;
-      border-radius: .7rem;
+      border-radius: 0.7rem;
       padding: 2rem;
       display: flex;
       justify-content: space-between;
@@ -82,6 +90,9 @@
       &:first-of-type {
         margin-right: 4rem;
         background: #ffefe2;
+        @media screen and (max-width: 46.4375em) {
+          margin-right: 2rem;
+        }
       }
       &.blue {
         background: #e6f5fa;

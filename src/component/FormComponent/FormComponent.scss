@@ -1,58 +1,73 @@
+.container {
+  padding: 0 4rem;
+}
 .container__header__text {
-    text-align: center;
-    font-size: 3.6rem;
-    font-weight: 500;
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: 500;
+  margin-top: 4rem;
+  @media screen and (max-width: 36.0625em) {
+    font-size: 2.6rem;
+    margin-bottom: 2rem;
   }
-  .container__row {
-    display: flex;
-    max-width: 100rem;
+}
+.container__row {
+  display: flex;
+  max-width: 100rem;
+  width: 100%;
+  margin: auto;
+  margin-top: 8rem;
+  justify-content: center;
+  text-align: center;
+  @media screen and (max-width: 36.0625em) {
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+  }
+}
+.container__column__cart {
+  width: 30rem;
+  min-height: 30rem;
+  margin-right: 5rem;
+  @media screen and (max-width: 36.0625em) {
+    margin-right: 0;
+  }
+  & .image_wrapper {
+    background: #20695e;
     width: 100%;
-    margin: auto;
-    margin-top: 8rem;
-    justify-content: center;
-    text-align: center;
-  }
-  .container__column__cart {
-    width: 30rem;
-    min-height: 30rem;
-    margin-right: 5rem;
-    & .image_wrapper {
-      background: #20695e;
+    height: 30rem;
+    border-radius: 0.840046rem;
+    cursor: pointer;
+    & img {
       width: 100%;
-      height: 30rem;
-      border-radius: .840046rem;
-      cursor: pointer;
-      & img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      height: 100%;
+      object-fit: cover;
     }
   }
-  .container__column__image__cart {
+}
+.container__column__image__cart {
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.container__column__farmer {
+  width: 30rem;
+  min-height: 30rem;
+  & .image_wrapper {
+    background: #88b22e;
     width: 100%;
-    display: block;
-    margin: auto;
-  }
-  .container__column__farmer {
-    width: 30rem;
-    min-height: 30rem;
-    & .image_wrapper {
-      background: #88b22e;
+    height: 30rem;
+    border-radius: 0.840046rem;
+    cursor: pointer;
+    & img {
       width: 100%;
-      height: 30rem;
-      border-radius: .840046rem;
-      cursor: pointer;
-      & img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
+      height: 100%;
+      object-fit: cover;
     }
   }
-  .container__column__image__cart__description {
-    position: relative;
-    white-space: nowrap;
-    margin-top: 1rem;
-  }
-  
+}
+.container__column__image__cart__description {
+  position: relative;
+  white-space: nowrap;
+  margin-top: 1rem;
+}

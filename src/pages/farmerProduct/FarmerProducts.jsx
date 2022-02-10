@@ -1,5 +1,5 @@
 import { DataGrid } from "@mui/x-data-grid";
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Data from "../../dommydata";
 import { Link } from "react-router-dom";
@@ -11,10 +11,8 @@ import { url } from "../../constant/url";
 const { allProduct } = Data;
 
 export default function FarmerProducts() {
-
   const dispatch = useDispatch();
-  
-  
+
   const getProduct = useSelector((state) => state.getProduct);
   const userSignin = useSelector((state) => state.userSignIn);
   
@@ -46,6 +44,10 @@ export default function FarmerProducts() {
   }, [0]);
 
 
+  const [products, setProducts] = useState(allProduct);
+  const [initiate, setInitiate] = useState(false);
+  const [status, setStatus] = useState(false);
+  const [id, setId] = useState(0);
 
   const columns = [
 
@@ -62,7 +64,6 @@ export default function FarmerProducts() {
               alt="img_product"
               className="productListImg"
             />
-            {/* {params.row.name} */}
           </div>
         );
       },
@@ -131,13 +132,9 @@ export default function FarmerProducts() {
 
   const handleDelete = (id) => {
     setInitiate(!initiate);
-    if (status) {
-      const newProducts = [...farmer_products].filter((c) => c.id !== id);
-      setProducts(newProducts);
-    }
-    setStatus(false);
+    setId(id);
   }
-  
+
   function handleRemove() {
     setInitiate(!initiate);
   }
@@ -151,16 +148,21 @@ export default function FarmerProducts() {
     setStatus(false);
     setInitiate(!initiate);
   }
-
+  useEffect(() => {
+    if (status && id) {
+        const newProducts = [...products].filter((c) => c.id !== id);
+        setProducts(newProducts);
+        setStatus(false);
+    }
+  }, [status, id, products]);
   
-
   return (
     <div className="farmerProducts">
       {farmer_products && (
         <DataGrid
           rows={farmer_products}
           columns={columns}
-          pageSize={8}
+          pageSize={6}
           rowsPerPageOptions={[5]}
           checkboxSelection
           disableSelectionOnClick

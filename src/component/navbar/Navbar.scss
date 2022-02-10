@@ -5,11 +5,21 @@
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
-  box-shadow: 0px .4rem .4rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0.4rem 0.4rem rgba(0, 0, 0, 0.06);
   padding: 0 1rem 0 1rem;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  &.sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 90px;
+    z-index: 120000;
+  }
   @media screen and (max-width: 1186px) {
     justify-content: stretch;
   }
+
   & .company_logo {
     height: 6.297124481201172rem;
     width: 14.6rem;
@@ -24,12 +34,12 @@
     }
   }
   & .hamburger_menu {
-    font-size: 3,5rem;
+    font-size: 3.5rem;
     display: none;
     color: green;
     @media screen and (max-width: 1186px) {
       display: block;
-      margin-right: 3rem;
+      margin-right: 1rem;
     }
   }
 }
@@ -61,15 +71,15 @@
     top: 100%;
     left: 0;
     width: 100%;
-    height: .2rem;
+    height: 0.2rem;
     background-color: #88b22e;
     transform: scale(0);
-    transform-origin: left;
     transition: transform 0.4s;
+    transform-origin: right;
   }
   &:hover::after {
     transform: scale(1);
-    // transform-origin: right;
+    transform-origin: left;
   }
 }
 .navigation a {
@@ -83,55 +93,46 @@
 }
 .login__button,
 .signup__button {
-  min-height: 3rem;
+  height: 3rem;
   width: 10rem;
   margin-right: 2rem;
   background: rgba(136, 178, 46, 0.12);
-  border-radius: .3rem;
-  padding: .5rem;
+  border-radius: 0.3rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
   border: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
-  @media screen and (max-width:825px) {
-display:none;
+  @media screen and (max-width: 825px) {
+    display: none;
   }
 }
 .login__button__image {
   width: 30%;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   /* padding: 15px; */
 }
 .signup__button__image {
   width: 20%;
-  margin-right: .5rem;
-}
-// .signup__button__text {
-//   margin-top: -23px;
-// }
-.login__button__text,
-.signup__button__text {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
-  line-height: 2.2rem;
-  /* margin-top: -25px;
-    margin-left: 15px; */
+  margin-right: 0.5rem;
 }
 .search__form {
   display: flex;
   align-items: center;
   position: relative;
   margin: 2rem;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   background-color: var(--background-disabled);
-  padding: .7rem;
+  padding: 0.7rem;
   & .search__icon {
     position: absolute;
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
     color: gray;
-    font-size:2rem;
+    font-size: 2rem;
   }
   & .header__search {
     font-family: "Poppins", sans-serif;
@@ -153,9 +154,9 @@ display:none;
     width: 3.4rem;
     border-radius: 50%;
     background-color: var(--main-color);
-    padding: .7rem;
+    padding: 0.7rem;
     position: relative;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     cursor: pointer;
     /* left: 140px; */
   }
