@@ -4,21 +4,25 @@ const faqData = [
     answer:
       'The moment you complete the initial transaction with us, every other aspect of payment will be catered for.',
     id: 1,
+    class:'One'
   },
   {
     question: 'what is the object oriented way of being wealthy',
     answer: 'Inheritance',
     id: 2,
+    class:'Two'
   },
   {
     question: 'Somebody that has no  body and nose is called?',
     answer: 'Nobody knows',
     id: 3,
+    class:'Three'
   },
   {
     question: 'what goes up and never comes down ?',
     answer: `one's Age`,
     id: 4,
+    class:'Four'
   },
 ];
 

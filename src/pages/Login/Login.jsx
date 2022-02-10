@@ -53,7 +53,7 @@ export default function Login() {
         </div>
         <input type="submit" value="Login" />
         <div className="form_redirection">
-          Don’t Have an account
+          <span>  Don’t Have an account?</span>
           <Link to="/farmer_signUpPage" className="link">
             Signup
           </Link>

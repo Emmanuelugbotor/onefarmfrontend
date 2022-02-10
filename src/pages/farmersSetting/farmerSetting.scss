@@ -1,0 +1,64 @@
+.farmerSetting {
+  & h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+  & form {
+    & .form__field {
+      max-width: 512px;
+      width: 100%;
+      position: relative;
+      margin-bottom: 0.8rem;
+      @media screen and (max-width: 41.5em) {
+        max-width: 100%;
+        width: 100%;
+      }
+      & input {
+        width: 100%;
+        padding: 1.8rem 1.6rem;
+        border-radius: 0.8rem;
+        border: 1px solid grey;
+        @media screen and (max-width: 41.5em) {
+          padding: 1.4rem 1.2rem;
+        }
+      }
+      & label {
+        line-height: 1.6;
+        font-weight: 400;
+        font-size: 1.6rem;
+      }
+    }
+    & .form_submit {
+      max-width: 512px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 3rem;
+      @media screen and (max-width: 41.5em) {
+        max-width: 100%;
+        width: 100%;
+      }
+      & button {
+        width: 9.5rem;
+        height: 5.4rem;
+        color: black;
+        background: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.6rem;
+        @media screen and (max-width: 41.5em) {
+          height: 4.2rem;
+          font-size: 1.3rem;
+        }
+        &:first-of-type {
+          border: 1px solid rgb(216, 211, 211);
+          margin-right: 1rem;
+        }
+        &:last-of-type {
+          background: var(--main-color);
+          color: #fff;
+        }
+      }
+    }
+  }
+}

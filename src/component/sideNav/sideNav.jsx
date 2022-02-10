@@ -19,7 +19,7 @@ export default function SideNav({ handleClicked }) {
         </div>
         <nav className="navbar_wrapper">
           <ul>
-            <li>
+            <li onClick={handleClicked}>
               <Link to="/" className="link">
                 <div>
                   <HomeIcon className="icon" />
@@ -28,7 +28,7 @@ export default function SideNav({ handleClicked }) {
               </Link>
             </li>
 
-            <li>
+            <li onClick={handleClicked}>
               <Link to="/about-us" className="link">
                 <div>
                   <HomeIcon className="icon" />
@@ -37,7 +37,7 @@ export default function SideNav({ handleClicked }) {
               </Link>
             </li>
 
-            <li>
+            <li onClick={handleClicked}>
               <Link to="/faq" className="link">
                 <div>
                   <HomeIcon className="icon" />
@@ -53,7 +53,7 @@ export default function SideNav({ handleClicked }) {
                 </div>
               </Link>
             </li> */}
-            <li>
+            <li onClick={handleClicked}>
               <Link to="/contact-us" className="link">
                 <div>
                   <HomeIcon className="icon" />
@@ -61,7 +61,7 @@ export default function SideNav({ handleClicked }) {
                 </div>
               </Link>
             </li>
-            <li>
+            <li onClick={handleClicked}>
               <Link to="/farmers" className="link">
                 <div>
                   <HomeIcon className="icon" />
@@ -71,8 +71,8 @@ export default function SideNav({ handleClicked }) {
             </li>
 
             {userInfo && userInfo.token ? (
-              userInfo.role == "farmer" ? (
-                <li className="login_display">
+              userInfo.role === "farmer" ? (
+                <li className="login_display" onClick={handleClicked}>
                   <Link to="/dashboard" className="link">
                     <div>
                       <HomeIcon className="icon" />
@@ -81,7 +81,7 @@ export default function SideNav({ handleClicked }) {
                   </Link>
                 </li>
               ) : (
-                <li className="login_display">
+                <li className="login_display" onClick={handleClicked}>
                   <Link to="/vendor_dashboard" className="link">
                     <div>
                       <HomeIcon className="icon" />
@@ -92,7 +92,7 @@ export default function SideNav({ handleClicked }) {
               )
             ) : (
               <>
-                <li className="login_display">
+                <li className="login_display" onClick={handleClicked}>
                   <Link to="/loginPage" className="link">
                     <div>
                       <HomeIcon className="icon" />
@@ -100,7 +100,7 @@ export default function SideNav({ handleClicked }) {
                     </div>
                   </Link>
                 </li>
-                <li className="login_display">
+                <li className="login_display" onClick={handleClicked}>
                   <Link to="/signUpPage" className="link">
                     <div>
                       <HomeIcon className="icon" />

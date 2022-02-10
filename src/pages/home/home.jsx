@@ -15,7 +15,7 @@ export default function Home() {
               Lorem ipsum dolor isut dolor mente albilor ratere solor menter
               lomotifite
             </p>
-            <button>Learn More</button>
+            <a href="#" className="btn btn--white">Learn More</a>
           </div>
         </header>
         <main>
@@ -67,7 +67,7 @@ export default function Home() {
               <img src="/images/image_33.png" alt="" />
             </div>
             <div className="product_gallery_right_bottom">
-              <div className="image_wrap">
+              <div className="image_wrap please">
                 <img src="/images/image_34.png" alt="" />
               </div>
               <div className="image_wrap">

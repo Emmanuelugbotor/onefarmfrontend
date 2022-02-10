@@ -12,56 +12,69 @@ import { getProducts } from "../../redux/actions/productAction";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CartButton from "../../utils/cartButton";
 import { Link } from "react-router-dom";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const { farmers } = Data;
 
 export default function Farmers() {
   const dispatch = useDispatch();
-
+  const [reveal, setReveal] = useState(false);
   const [current, setCurrent] = useState(farmers[0].id);
-  const [farmersList, setFarmersList ]= useState(farmers);
-  const [productList, setProduct ]= useState(farmers);
-  const [farmersProduct, setFarmerProduct ]= useState(farmers);
+  const [farmersList, setFarmersList] = useState(farmers);
+  const [productList, setProduct] = useState(farmers);
+  const [farmersProduct, setFarmerProduct] = useState(farmers);
 
   function handleClicked(id) {
     setCurrent(id);
-    setFarmerProduct(productList.filter((items)=> items.farmer_id == id))
+    setFarmerProduct(productList.filter((items) => items.farmer_id === id));
+    setReveal(!reveal);
   }
-  
+
   let added = addToCarts(useDispatch, useSelector);
 
   useEffect(() => {
+    axios
+      .get(`${url}getFarmers`)
+      .then((res) => {
+        let { data } = res;
+        setFarmersList(data.result);
+      })
+      .catch((e) => {
+        console.log("ERROR FETCHING DATA ");
+      });
 
-    axios.get(`${url}getFarmers`).then((res)=>{
-      let { data } = res;
-      setFarmersList(data.result);
-    }).catch((e)=>{
-      console.log("ERROR FETCHING DATA ")
-    })
-  
-    axios.get(`${url}getProducts`).then((res)=>{
-      let { data } = res;
-      setFarmerProduct(data.result);
-      setProduct(data.result);
-    }).catch((e)=>{
-      console.log("ERROR FETCHING PRODUCT DATA ")
-    })
+    axios
+      .get(`${url}getProducts`)
+      .then((res) => {
+        let { data } = res;
+        setFarmerProduct(data.result);
+        setProduct(data.result);
+      })
+      .catch((e) => {
+        console.log("ERROR FETCHING PRODUCT DATA ");
+      });
 
     dispatch(getProducts());
   }, [dispatch]);
-
+  // handle thetoggle implementation of the farmers hamburger
+  function handleToggle() {
+    setReveal(!reveal);
+  }
   return (
-
     <div className="farmers">
-      <CartButton/>
-      <div className="farmer_sidebar">
-        <div className="logo">
-          <Link to={"/"}> 
-          <img src="/images/main-logo.png" alt="main-logo" />
-          </Link>
+      <CartButton />
+      <div className={reveal ? "reveal farmer_sidebar" : "farmer_sidebar"}>
+        <div className="hamburger_logo_wrapper">
+          <MenuIcon className="menuIcon" onClick={handleToggle} />
+          <div className="logo">
+            <Link to={"/"}>
+              <img src="/images/main-logo.png" alt="main-logo" />
+            </Link>
+          </div>
         </div>
+
         <div className="farmer_heading">
-          <PersonOutlineIcon />
+          <PersonOutlineIcon className="farmers_icon" />
           <h1>Our Farmers</h1>
         </div>
         <ul className="farmer_list">
@@ -73,30 +86,46 @@ export default function Farmers() {
                 className={current === user.id && "active"}
               >
                 <div className="farmer_list_image">
-                  <img src={`${user.photo_url ? user.photo_url : '/images/main-logo.png'}`} alt="" />
+                  <img
+                    src={`${
+                      user.photo_url ? user.photo_url : "/images/main-logo.png"
+                    }`}
+                    alt=""
+                  />
                 </div>
                 <div className="farmer_list_name">
-                  {user.name} <br/> {user.address}
-
+                  {user.name} <br /> {user.address}
                 </div>
               </li>
-            )
+            );
           })}
         </ul>
       </div>
 
       <div className="farmer_main">
         <div className="farmer_main_wrapper">
-          <SearchComponent />
+          <div className="search_home_wrapper">
+            <MenuIcon className="home_icon" onClick={handleToggle} />
+            <SearchComponent class={true} />
+          </div>
           <div className="user__card">
             <div className="user__card-title">Profile</div>
             <li>
               <div className="farmer_list_image">
-                <img src={`${farmersList[current - 1].photo_url ? farmersList[current - 1].photo_url : "/images/main-logo.png"}`} alt="" />
+                <img
+                  src={`${
+                    farmersList[current - 1].photo_url
+                      ? farmersList[current - 1].photo_url
+                      : "/images/main-logo.png"
+                  }`}
+                  alt=""
+                />
               </div>
               <div className="farmer_list_name">
                 <span className="name">{farmersList[current - 1].name}</span>
-                <span className="title">{farmersList[current - 1].address}</span>
+                <span className="title">
+                  {farmersList[current - 1].address}
+                </span>
               </div>
             </li>
             <div className="strength">
@@ -120,18 +149,21 @@ export default function Farmers() {
                 return (
                   <li className="products_item" key={index}>
                     <div className="products_item-wrapper">
-                    <div className="products_item_image">
-                      <img src={`${url+prod.imagesName}`} alt="" />
+                      <div className="products_item_image">
+                        <img src={`${url + prod.imagesName}`} alt="" />
+                      </div>
+                      <div className="products_item_category">
+                        <p> {prod.name} </p>
+                        <p> #{prod.amt} </p>
+                        <span> {prod.weight} kg </span>
+                      </div>
                     </div>
-                    <div className="products_item_category">
-                       <h3> {prod.name} </h3>
-                       <h3> #{prod.amt} </h3>
-                       <h3> {prod.weight} kg </h3>
-                    </div>
-                    </div>
-                    <button className="button" onClick={() => added(`${prod.id}`, prod.fullbag)}>
-                    <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                     {prod.amt}
+                    <button
+                      className="button"
+                      onClick={() => added(`${prod.id}`, prod.fullbag)}
+                    >
+                      <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+                      {prod.amt}
                     </button>
                     <button className="button">View Product</button>
                   </li>

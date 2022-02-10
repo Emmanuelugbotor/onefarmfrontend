@@ -7,14 +7,15 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    position: relative;
     & .info {
       width: 53.8rem;
       padding-top: 10.9rem;
       margin-left: 10.1rem;
-      @media screen and (max-width:690px) {
-        width:80%;
-        margin:0 auto;
-       }
+      @media screen and (max-width: 690px) {
+        width: 80%;
+        margin: 0 auto;
+      }
 
       & h2.title {
         font-family: Poppins;
@@ -23,13 +24,13 @@
         font-size: 4.8rem;
         line-height: 7.2rem;
         color: #ffffff;
-        @media screen and (max-width:690px) {
+        @media screen and (max-width: 690px) {
           font-size: 38px;
-         }
-         @media screen and (max-width:549px) {
+        }
+        @media screen and (max-width: 549px) {
           font-size: 30px;
           line-height: 40px;
-         }
+        }
       }
       & p {
         font-family: Poppins;
@@ -39,10 +40,10 @@
         line-height: 2.7rem;
         color: #ffffff;
         margin-bottom: 3.7rem;
-        @media screen and (max-width:549px) {
+        @media screen and (max-width: 549px) {
           font-size: 16px;
-          margin-top:20px;
-         }
+          margin-top: 20px;
+        }
       }
       & button {
         display: inline-block;
@@ -51,7 +52,7 @@
         background: #406b26;
         border: none;
         outline: none;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         font-family: Poppins;
         font-style: normal;
         font-weight: 600;
@@ -68,22 +69,22 @@
     margin-top: 11.1rem;
     display: flex;
     flex-direction: column;
-    @media screen and (max-width:62.5em) {
-      max-width:100%;
-      width:100%;
-      padding:4rem;
+    @media screen and (max-width: 62.5em) {
+      max-width: 100%;
+      width: 100%;
+      padding: 4rem;
     }
     & .primary {
       display: flex;
       & h1 {
         margin-right: 22.5rem;
-        @media screen and (max-width:62.5em) {
+        @media screen and (max-width: 62.5em) {
           margin-right: 18rem;
         }
-        @media screen and (max-width:53.75em) {
+        @media screen and (max-width: 53.75em) {
           margin-right: 12rem;
         }
-        @media screen and (max-width:49.5em) {
+        @media screen and (max-width: 49.5em) {
           margin-right: 8rem;
         }
       }
@@ -116,10 +117,9 @@
           line-height: 3rem;
           color: #000000;
           margin-bottom: 2.6rem;
-          @media screen and (max-width:53.75em) {
+          @media screen and (max-width: 53.75em) {
             margin-bottom: 1.6rem;
           }
-          
         }
       }
     }
@@ -135,6 +135,10 @@
       width: 100%;
       padding: 0 20px;
     }
+    @media screen and (max-width: 40.0625em) {
+      flex-direction: column;
+    }
+
     & .product_gallery_left,
     & .product_gallery_right {
       flex: 1;
@@ -144,6 +148,9 @@
       height: 100%;
       margin-right: 1rem;
       overflow: hidden;
+      @media screen and (max-width: 40.0625em) {
+        margin-bottom: 1rem;
+      }
       & img {
         width: 100%;
         height: 100%;
@@ -158,11 +165,18 @@
     & .product_gallery_right {
       display: flex;
       flex-direction: column;
+      @media screen and (max-width: 40.0625em) {
+        flex-direction: row;
+      }
       & .product_gallery_right_top {
         width: 100%;
         height: 50%;
         margin-bottom: 1rem;
         overflow: hidden;
+        @media screen and (max-width: 40.0625em) {
+          flex: 0 1 33.33%;
+          margin-right: 1rem;
+        }
         & img {
           width: 100%;
           height: 100%;
@@ -178,13 +192,20 @@
         display: flex;
         width: 100%;
         height: 50%;
-        @media screen and (max-width:62.5em) {
+        @media screen and (max-width: 62.5em) {
           flex-direction: column;
+        }
+        @media screen and (max-width: 40.0625em) {
+          flex: 0 1 66.66%;
+          flex-direction: row;
         }
         & .image_wrap {
           flex: 1;
           height: 100%;
           overflow: hidden;
+          @media screen and (max-width: 40.0625em) {
+            flex: 1;
+          }
           & img {
             width: 100%;
             height: 100%;
@@ -197,9 +218,13 @@
           }
           &:first-of-type {
             margin-right: 1rem;
-            @media screen and (max-width:62.5em) {
-              margin-right:0;
-              margin-bottom:1rem;
+            @media screen and (max-width: 62.5em) {
+              margin-right: 0;
+              margin-bottom: 1rem;
+            }
+            @media screen and (max-width: 40.0625em) {
+              margin-bottom: 0;
+              margin-right: 1rem;
             }
           }
         }
@@ -212,35 +237,34 @@
     margin: 0 auto;
     margin-top: 15.4rem;
     display: flex;
-    @media screen and (max-width:62.5em) {
-      max-width:100%;
-      width:100%;
-      padding:4rem;
+    @media screen and (max-width: 62.5em) {
+      max-width: 100%;
+      width: 100%;
+      padding: 4rem;
       align-items: center;
       margin-top: 8.4rem;
-
     }
-    @media screen and (max-width:45.0625em) {
-     flex-direction: column;
-     align-items: stretch;
+    @media screen and (max-width: 45.0625em) {
+      flex-direction: column;
+      align-items: stretch;
     }
-    & .local_merchant_gallery-left{
-      @media screen and (max-width:45.0625em) {
-        flex:1;   
+    & .local_merchant_gallery-left {
+      @media screen and (max-width: 45.0625em) {
+        flex: 1;
       }
       & figure {
         width: 31.6rem;
         height: 38.7rem;
         margin-right: 14.3rem;
-        @media screen and (max-width:62.5em) {
-          margin-right:8rem;
+        @media screen and (max-width: 62.5em) {
+          margin-right: 8rem;
         }
-        @media screen and (max-width:45.0625em) {
-          width:100%;
-          height:20rem;
-          margin-right:0;
+        @media screen and (max-width: 45.0625em) {
+          width: 100%;
+          height: 20rem;
+          margin-right: 0;
         }
-  
+
         & img {
           width: 100%;
           object-fit: cover;
@@ -248,23 +272,21 @@
         }
         &.second_figure {
           margin-right: 0;
-          
         }
       }
     }
 
     & .local_merchant_gallery-right {
-      @media screen and (max-width:45.0625em) {
-        flex:1;
-  
+      @media screen and (max-width: 45.0625em) {
+        flex: 1;
       }
       &.second {
         margin-right: 11.3rem;
-        @media screen and (max-width:62.5em) {
-          margin-right:8rem;
+        @media screen and (max-width: 62.5em) {
+          margin-right: 8rem;
         }
-        @media screen and (max-width:45.0625em) {
-          margin-right:0;
+        @media screen and (max-width: 45.0625em) {
+          margin-right: 0;
         }
       }
       & h1 {
@@ -276,11 +298,10 @@
         line-height: 3.6rem;
         color: #000000;
         margin-bottom: 5.3rem;
-        @media screen and (max-width:45.0625em) {
+        @media screen and (max-width: 45.0625em) {
           margin-bottom: 2.3rem;
-          margin-top:2rem;
+          margin-top: 2rem;
           line-height: 1.6rem;
-    
         }
       }
       & span {
@@ -293,34 +314,32 @@
         line-height: 1.9rem;
         color: #88b22e;
         margin-top: 8.2rem;
-        @media screen and (max-width:45.0625em) {
-          margin-top:2rem;
+        @media screen and (max-width: 45.0625em) {
+          margin-top: 2rem;
         }
         & .arrow_icon {
           margin-left: 1rem;
         }
       }
     }
-  
-  &.second-local{
-    @media screen and (max-width:45.0625em) {
-      flex-direction: column-reverse;
-      margin-top:2rem;
-    }
-    
-  }
-  }
 
+    &.second-local {
+      @media screen and (max-width: 45.0625em) {
+        flex-direction: column-reverse;
+        margin-top: 2rem;
+      }
+    }
+  }
 }
 section.stats {
   width: 100%;
   height: 23.6rem;
   background: #406b26;
   margin-top: 18.2rem;
-  @media screen and (max-width:62.5em) {
+  @media screen and (max-width: 62.5em) {
     margin-top: 4.4rem;
   }
-  
+
   & ul {
     height: 100%;
     list-style-type: none;
@@ -351,16 +370,16 @@ section.upcoming_events {
   max-width: 100rem;
   margin: 0 auto;
   margin-top: 6rem;
-  @media screen and (max-width:62.5em) {
-    max-width:100%;
-    width:100%;
-    padding:4rem;
+  @media screen and (max-width: 62.5em) {
+    max-width: 100%;
+    width: 100%;
+    padding: 4rem;
     margin-top: 4rem;
   }
   & .heading {
     display: flex;
     align-items: center;
-    @media screen and (max-width:62.5em) {
+    @media screen and (max-width: 62.5em) {
       justify-content: center;
     }
     // @media screen and (max-width: 1070px) {
@@ -377,7 +396,7 @@ section.upcoming_events {
       font-size: 2.4rem;
       line-height: 36px;
       color: #000000;
-      @media screen and (max-width: 43.75em ) {
+      @media screen and (max-width: 43.75em) {
         text-align: center;
         margin-right: 0;
         margin-bottom: 10px;
@@ -388,8 +407,8 @@ section.upcoming_events {
     display: flex;
     margin-top: 13.2rem;
     margin-left: 12rem;
-    @media screen and (max-width:62.5em) {
-      margin-top:8rem;
+    @media screen and (max-width: 62.5em) {
+      margin-top: 8rem;
       margin-left: 0;
       justify-content: center;
     }
@@ -399,11 +418,11 @@ section.upcoming_events {
     & .events_details_content {
       width: 21rem;
       @media screen and (max-width: 62.5em) {
-        flex:1;
-        width:100%;
-        padding:0 4rem;
+        flex: 1;
+        width: 100%;
+        padding: 0 4rem;
       }
-     
+
       &:first-of-type {
         margin-right: 10rem;
         @media screen and (max-width: 62.5em) {
@@ -480,20 +499,26 @@ section.newsletter {
         margin-bottom: 2.3rem;
         @media screen and (max-width: 1081px) {
           height: 50px;
-          width: 402px;
+          width: 40.2rem;
+        }
+        @media screen and (max-width: 40.0625em) {
+          width: 100%;
+          padding: 0;
+          margin: 0 auto;
+          margin-bottom: 2rem;
         }
         & input {
           width: 100%;
           height: 100%;
           background: #ffffff;
-          border-radius: .5rem;
+          border-radius: 0.5rem;
           padding: 1rem;
         }
       }
       & input[type="submit"] {
         width: 50.2rem;
         height: 6.7rem;
-        border-radius: .5rem;
+        border-radius: 0.5rem;
         background: #406b26;
         font-weight: 600;
         font-size: 2rem;
@@ -509,4 +534,91 @@ section.newsletter {
       }
     }
   }
+}
+
+// --------------------btn------------
+
+%btn-placeholder {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 20rem;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  /* the transition property is added to the original state.. */
+  position: relative;
+  font-size: 1.6rem;
+}
+@mixin format-hover($trans, $shadow) {
+  -webkit-transform: $trans;
+  -ms-transform: $trans;
+  transform: $trans;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+.btn {
+  &:link,
+  &:visited,
+  & {
+    @extend %btn-placeholder;
+    //  by default the button type usually comes with border
+    border: none;
+    cursor: pointer;
+  }
+
+  &--white {
+    color: #fff;
+    background-color: var(--main-color);
+    &::after {
+      background-color: var(--main-color);
+    }
+
+    &:hover {
+      @include format-hover(
+        translateY(-0.3rem),
+        0rem 1rem 2rem rgba(0, 0, 0, 0.2)
+      );
+      // transform:translateY(-0.3rem);
+      // box-shadow:0rem 1rem 2rem rgba(0,0,0,0.2)
+      &::after {
+        opacity: 0;
+        -webkit-transform: scaleX(1.4) scaleY(1.6);
+        -ms-transform: scaleX(1.4) scaleY(1.6);
+        transform: scaleX(1.4) scaleY(1.6);
+      }
+      /* when we hover the btn we want some certain style on the after pseudo-element=>.btn:hover::after  */
+      /* ----very important logic behind the animation around the button */
+    }
+    &:active,
+    &:focus {
+      // -webkit-transform:translateY(-0.1rem);
+      //     -ms-transform:translateY(-0.1rem);
+      //         transform:translateY(-0.1rem);
+      // -webkit-box-shadow:0rem .5rem 1rem rgba($color-black,0.2);
+      //         box-shadow:0rem .5rem 1rem rgba($color-black,0.2);
+      outline: none;
+      @include format-hover(
+        translateY(-0.1rem),
+        0rem 0.5rem 1rem rgba(0,0,0, 0.2)
+      );
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      border-radius: 20rem;
+      -webkit-transition: all 0.4s;
+      -o-transition: all 0.4s;
+      transition: all 0.4s;
+    }
+  }
+  
 }

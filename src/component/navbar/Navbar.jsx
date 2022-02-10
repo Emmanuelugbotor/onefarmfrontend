@@ -5,23 +5,25 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SideNav from "../sideNav/sideNav";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export default function Navbar() {
+export default function Navbar({ position }) {
   const userSignin = useSelector((state) => state.userSignIn);
   const { userInfo } = userSignin;
+  const headerRef = useRef();
 
   const [home, setHome] = useState(false);
 
   function handleClicked() {
     setHome(false);
   }
-  useEffect(()=>{
-
-  }, [userInfo, userSignin])
+  useEffect(() => {}, [userInfo, userSignin]);
   return (
     <div>
-      <header className="header">
+      <header
+        ref={headerRef}
+        className={position > 183 ? "header sticky" : "header"}
+      >
         <MenuIcon className="hamburger_menu" onClick={() => setHome(true)} />
         <Link className="company_logo" to={"/"}>
           <img src="/images/main-logo.png" alt="" className="header__logo" />
@@ -67,7 +69,7 @@ export default function Navbar() {
 
         <div className="nav__right">
           {userInfo && userInfo.token ? (
-            userInfo.role == "farmer" ? (
+            userInfo.role === "farmer" ? (
               <button className="login__button">
                 <img
                   src="/images/user (1).png"
@@ -93,23 +95,13 @@ export default function Navbar() {
           ) : (
             <>
               <button className="login__button">
-                <img
-                  src="/images/user (1).png"
-                  alt=""
-                  className="login__button__image"
-                />
                 <Link to="/loginPage" className="link">
-                  <p className="login__button__text">Login</p>
+                  Login
                 </Link>
               </button>
               <button className="signup__button">
-                <img
-                  src="/images/add-user (1).png"
-                  alt=""
-                  className="signup__button__image"
-                />
                 <Link to="/signUpPage" className="link">
-                  <p className="signup__button__text">Signup</p>
+                  Signup
                 </Link>
               </button>
             </>

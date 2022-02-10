@@ -9,6 +9,7 @@ export default function Faq() {
   function handleClick(id) {
     setFaq(id);
   }
+
   return (
     <Layout>
       <div className="faq">
@@ -38,6 +39,39 @@ export default function Faq() {
               <p>{faqData[faq - 1].answer}</p>
             </div>
           )}
+        </div>
+        <div className="accordion-wrapper">
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            {faqData.map((item, index) => {
+              return (
+                <div className="accordion-item" key={index}>
+                  <h2
+                    className="accordion-header"
+                    id={`flush-heading${item.class}`}
+                  >
+                    <button
+                      className="accordion-button collapsed"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target={`#flush-collapse${item.class}`}
+                      aria-expanded="false"
+                      aria-controls={`flush-collapse${item.class}`}
+                    >
+                      {item.question}
+                    </button>
+                  </h2>
+                  <div
+                    id={`flush-collapse${item.class}`}
+                    className="accordion-collapse collapse"
+                    aria-labelledby={`flush-heading${item.class}`}
+                    data-bs-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">{item.answer}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </Layout>

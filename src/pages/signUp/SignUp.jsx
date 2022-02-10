@@ -64,22 +64,25 @@ export default function SignUp() {
               <label htmlFor="">Email</label>
             </div>
           </div>
-          <div className="input_form">
-            <input
-              type="text"
-              onChange={(e) => setAddr(e.target.value)}
-              required={true}
-            />
-            <label htmlFor="">Farm Address</label>
+          <div className="input_form first">
+            <div className="input_form_left">
+              <input
+                type="text"
+                onChange={(e) => setAddr(e.target.value)}
+                required={true}
+              />
+              <label htmlFor="">Farm Address</label>
+            </div>
+            <div className="input_form_left">
+              <input
+                type="number"
+                onChange={(e) => setNumber(e.target.value)}
+                required={true}
+              />
+              <label htmlFor="">number</label>
+            </div>
           </div>
-          <div className="input_form">
-            <input
-              type="number"
-              onChange={(e) => setNumber(e.target.value)}
-              required={true}
-            />
-            <label htmlFor="">number</label>
-          </div>
+
           <div className="input_form">
             <input
               type="password"
@@ -98,11 +101,12 @@ export default function SignUp() {
             />
             <label htmlFor="">Confirm password</label>
           </div> */}
-          <div className="input_form">
+          <div className="input_form submit-form">
             <input type="submit" value="sign-up" required={true} />
           </div>
           <div className="form_redirection">
-            Already Have an account?
+            <span>Already Have an account?</span>
+
             <Link to="/farmer_LoginPage" className="link">
               Login
             </Link>

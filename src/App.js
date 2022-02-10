@@ -21,6 +21,7 @@ import SuperLoginPage from "./pages/superAdminRoutes/adminLogin/login";
 import SuperRegisterPage from "./pages/superAdminRoutes/adminRegister/adminRegister";
 import AdminDashboard from "./pages/superAdminRoutes/adminDashboard/adminDashboard";
 import Address from './pages/Address/Address'
+import ContactUsMain from './pages/contactUsPageMain/contactUsMain'
 // import CheckoutPage from "../src/"
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/signUpPage" element={<SIgnUpPage />} />
-          <Route path="/contact-us" element={<ContactUsPage />} />
+          <Route path="/contact-us" element={< ContactUsMain  />} />
           <Route path="/faq" element={<Faq />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/farmers" element={<Farmers />} />
