@@ -7,7 +7,7 @@ import NotFound from "./pages/notFound/NotFound";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import Faq from "./pages/FAQ/Faq";
 import SIgnUpPage from "./pages/SignUpPage/SIgnUpPage";
-import ContactUsPage from "./pages/contactUsPage/ContactUsPage";
+// import ContactUsPage from "./pages/contactUsPage/ContactUsPage";
 import Shop from "./pages/Shop/Shop";
 import Farmers from "./pages/farmers/Farmers";
 import CartPage from "./pages/CartPage/CartPage";
