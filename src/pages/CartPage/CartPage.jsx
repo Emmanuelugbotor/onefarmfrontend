@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from "react-redux";
 import AddToCard from "../../utils/addToCartForCart";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 import { pagination } from "../../paginateFunction";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { createOrder } from "../../redux/actions/orderActions";
