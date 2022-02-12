@@ -53,7 +53,6 @@ $color-primary-dark: rgb(61, 61, 82);
     justify-content: center;
     align-items: center;
     // position: relative;
-    border: 1px solid red;
     @media screen and (max-width: 45.375em) {
       width: 100%;
     }
@@ -95,7 +94,7 @@ $color-primary-dark: rgb(61, 61, 82);
 
   & .contact_right {
     width: 100%;
-    min-height:40rem;
+    min-height: 40rem;
     @media screen and (max-width: 53.6875em) {
       flex: 0 1 55%;
       width: 100%;
