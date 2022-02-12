@@ -17,6 +17,7 @@ import FarmerProducts from "../farmerProduct/FarmerProducts";
 import FarmerSubscribe from "../farmerSuscribe/farmerSubscribe";
 import FarmersSetting from "../farmersSetting/farmersSetting";
 import { useDispatch } from "react-redux";
+import FarmerEdit from '../farmerEdit/FarmerEdit'
 import { signOut } from "../../redux/actions/usersAction";
 // import { useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
@@ -37,7 +38,9 @@ export default function FarmerDashboard() {
   function handleToggle() {
     setReveal(!reveal);
   }
+
   return (
+
     <div className="farmerDash">
       <ToastContainer/>
       <div
@@ -92,7 +95,7 @@ export default function FarmerDashboard() {
             </li>
           </NavLink>
 
-          <div
+          {/* <NavLink
             onClick={()=> toast("This feature is coming out soon")}
             style={{
               cursor: "pointer"
@@ -106,39 +109,39 @@ export default function FarmerDashboard() {
               <CardMembershipIcon className="icon" />
               <span>Suscribe</span>
             </li>
-          </div>
+          </NavLink> */}
 
-          <div
+          <NavLink
             onClick={()=> toast("This feature is coming out soon")}
             style={{
               cursor: "pointer"
             }}
-            to="chat"
+            to=""
             className={(navData) =>
-              "nav-link " + (navData.isActive ? "active" : "")
+              "nav-link " + (navData.isActive ? "sactive" : "")
             }
           >
             <li className="farmerDashboard_left_item">
               <ChatIcon className="icon" />
               <span>Chat</span>
             </li>
-          </div>
+          </NavLink>
 
-          <div
-            // to="e-learning"
+          <NavLink
             style={{
               cursor: "pointer"
             }}
             onClick={()=> toast("This feature is coming out soon")}
             className={(navData) =>
-              "nav-link " + (navData.isActive ? "active" : "")
+              "nav-link " + (navData.isActive ? "sactive" : "")
             }
+            to=""
           >
-            <li className="farmerDashboard_left_item">
+            <li className="">
               <SchoolIcon className="icon" />
               <span>E-learning</span>
             </li>
-          </div>
+          </NavLink>
 
           <NavLink
             to="settings"
@@ -178,6 +181,7 @@ export default function FarmerDashboard() {
           <Route path="" element={<FarmerDashMain />} />
           <Route path="add" element={<FarmerDashAdd />} />
           <Route path="products" element={<FarmerProducts />} />
+          <Route path="products/*" element={<FarmerEdit/>} />
           <Route path="subscribe" element={<FarmerSubscribe />} />
           <Route path="settings" element={<FarmersSetting />} />
         </Routes>

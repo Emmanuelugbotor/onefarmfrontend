@@ -1,4 +1,4 @@
-import "./farmerDashMain.scss";
+import "./vendorDash.scss";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
@@ -6,16 +6,17 @@ import { useSelector } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function FarmerDashMain() {
+export default function VendorDashMain() {
+  
+  const notify = () => toast("Wow so easy!");
   
   const vendorSignIn = useSelector((state) => state.vendorSignIn);
-  const notify = () => toast("Wow so easy!");
-
-
-  console.log("tis is te vendor testsing ", vendorSignIn)
   const { vendorInfo, loading, error, success } = vendorSignIn;
+
+
+  // console.log("this is te vendor testsing ", vendorSignIn)
   return (
-    <div className="farmerDashMain_container">
+    <div className="vendorDashMain_container">
       <div className="name_welcome">
         <h1 className="name">Hi {vendorInfo.name}</h1>
         <div className="welcome">Welcome !</div>

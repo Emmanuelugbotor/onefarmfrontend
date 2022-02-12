@@ -2,53 +2,69 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Data from "../../dommydata";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./FarmerProducts.scss";
 import Alert from "../../component/Alert/Alert";
 import { getProducts } from "../../redux/actions/productAction";
 import { url } from "../../constant/url";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {deleteProduct} from '../../redux/actions/productAction'
+import axios from "axios";
 
 const { allProduct } = Data;
 
 export default function FarmerProducts() {
+  const router = useNavigate()
   const dispatch = useDispatch();
 
   const getProduct = useSelector((state) => state.getProduct);
   const userSignin = useSelector((state) => state.userSignIn);
+  const deleteProd = useSelector((state) => state.deleteProduct);
   
-  const [feature, setFeatured] = useState([]);
+  const [feature, setFeatured] = useState([]);  
   const [category, setCategory] = useState([]);
 
   const { userInfo } = userSignin;
   const { products, loading, error } = getProduct;
+  const { deleteProduct: delProd, loading: signalLoader, error: errorDel } = deleteProd;
 
-  const [farmer_products, setProducts] = useState([]);
+  const [farmer_products, setProducts] = useState(products);
   const [initiate, setInitiate] = useState(false);
   const [status, setStatus] = useState(false);
+  const [getAllPro, setAllProd] = useState([]);
 
   
-  useEffect(() => {
-    if(products){
-      const newProducts = [...products].filter((c) => c.farmer_id == userInfo.id);
-      setProducts(newProducts);
-    }
-    // axios
-    //   .get(`${url}getproducts`)
-    //   .then((res) => {
-    //     setFeatured(res.data.items);
-    //     setCategory(res.data.items);
-    //   })
-    //   .catch((error) => console.log(error), setFeatured([]));
+  
+  
+  useEffect(async() => {
+    dispatch(getProducts())
+    await axios
+      .get(`${url}getproducts`)
+      .then((res) => {
+        // console.log("ress", res)
+        setProducts(res.data.result);
+        console.log("sssssssssss", farmer_products)
+      })
+      .catch((error) => console.log(error), setFeatured([]));
+
+      // if(products){
+      //   const newProducts = [...getAllPro].filter((c) => c.farmer_id == userInfo.id);
+      //   setProducts(products);
+      //   // setProducts(newProducts);
+      // }
     
-    dispatch(getProducts());
+    
   }, [dispatch]);
 
 
-  // const [farmer_products, setProducts] = useState(allProduct);
-  // const [initiate, setInitiate] = useState(false);
-  // const [status, setStatus] = useState(false);
+//handle the edit section
+function handleEdit(id){
+ const data = farmer_products.filter((c) => c.farmer_id == userInfo.id && c.id === id)
+  router(`/dashboard/products/${id}`, {
+    state:{from: data}
+  })
+}
 
   const [id, setId] = useState(0);
 
@@ -104,9 +120,9 @@ export default function FarmerProducts() {
       renderCell: (params) => {
         return (
           <div className="productModify">
-            <Link to={`/products/${params.row.id}`} className="link">
-              <button className="productListEdit">Edit</button>
-            </Link>
+            {/* <Link to={`/dashboard/products/${params.row.id}`} className="link"> */}
+              <button className="productListEdit" onClick={()=>handleEdit(params.row.id)}>Edit</button>
+            {/* </Link> */}
           </div>
         );
       },
@@ -130,7 +146,7 @@ export default function FarmerProducts() {
     },
   ];
 
-  // handling the temporal removal of data and updating the state...
+  // handling the temporal removal of data and updating the state... 
   // const [data, setData] = useState(productRows);
 
   const handleDelete = (id) => {
@@ -151,26 +167,38 @@ export default function FarmerProducts() {
     setStatus(false);
     setInitiate(!initiate);
   }
+
+
   useEffect(() => {
     if (status && id) {
-        const newProducts = [...products].filter((c) => c.id !== id);
+        const newProducts = [...farmer_products].filter((c) => c.id !== id);
         setProducts(newProducts);
+        dispatch(deleteProduct(id, userInfo));
         setStatus(false);
+
+        if (delProd) {
+          toast("Product deleted successfully")
+        }
+        if (errorDel) {
+          toast("Network Error, try again");
+        }
     }
+    
   }, [status, id, products]);
 
   return (
     <div className="farmerProducts">
+      <ToastContainer />
       
       {farmer_products && (
         <DataGrid
-          rows={farmer_products}
+          rows={farmer_products.filter((c) => c.farmer_id == userInfo.id)}
           columns={columns}
           pageSize={10}
           rowsPerPageOptions={[10]}
           checkboxSelection
           disableSelectionOnClick
-          //   getRowId={(r) => r._id}
+            getRowId={(r) => r.id}
         />
       )}
       {initiate && (

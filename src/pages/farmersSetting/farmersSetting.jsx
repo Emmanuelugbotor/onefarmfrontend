@@ -1,4 +1,5 @@
 import "./farmerSetting.scss";
+import {changePassword} from '../../redux/actions/usersAction'
 export default function FarmersSetting() {
   return (
     <div className="farmerSetting">
@@ -26,7 +27,15 @@ export default function FarmersSetting() {
           <input type="file" placeholder="" />
           <p>File size limit: 1MB</p>
         </div>
-        <div className="form__field">
+        <div className="form_submit">
+          <button>Cancel</button>
+          <button>Save</button>
+        </div>
+      </form>
+      <form action="" className="" className="password-form">
+        <p>you can also change or update your password below</p>
+        <span>** password and confirm password must be same</span>
+      <div className="form__field">
           <label>Password</label>
           <input type="password" placeholder="new password" />
         </div>

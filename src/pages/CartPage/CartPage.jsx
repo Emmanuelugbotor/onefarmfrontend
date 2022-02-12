@@ -27,9 +27,6 @@ export default function CartPage() {
   //public_key: 'FLWPUBK-93f72abbb910f3df3c4dbc960feb93c6-X',
 
   
-
- 
-
   let totalPrice = 0;
   let cartItems = useSelector((state) => state.cart);
   let numOfCartItems = cartItems.cartItems.length;
@@ -89,6 +86,7 @@ const showDetails = (items) => {
   setShow(true);
   setProductInfo(items);
 };
+
 const hideDetails = () => {
   setShow(!show);
 };

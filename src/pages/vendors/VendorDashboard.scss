@@ -1,31 +1,56 @@
-.farmerDash {
+.vendorDash {
   display: flex;
-  width: 100%;
-  min-height: 100vh;
-  & .farmerDashboard_left {
+  width: 100%; 
+  & .vendorDashboard_left {
     flex: 0 1 20%;
-    background-color: #fff;
     height: 100vh;
     position: sticky;
     top: 0;
     left: 0;
-    background: rgba(208, 208, 208, 0.08);
-    box-shadow: 0px .4rem 3.1rem rgba(0, 0, 0, 0.03);
-
-    & .logo {
-      // width:100%;
-      // height:60px;
-      margin-top: 2rem;
-      margin-left: 3rem;
-      margin-bottom: 4rem;
-      // border:1px solid red;
-      // & img{
-      //     width:100%;
-      //     height:100%;
-      //     object-fit: cover;
-      // }
+     background: rgba(208, 208, 208, 0.08);  
+    box-shadow: 0px 0.4rem 3.1rem rgba(0, 0, 0, 0.1);
+    // overflow-y: scroll;
+    @media screen and (max-width: 66em) {
+      flex: 0 1 30%;
     }
-    & ul.farmerDashboard_left_list {
+    @media screen and (max-width: 41.5em) {
+      display: none;
+      flex: 1;
+    }
+    &.reveal {
+      @media screen and (max-width: 41.5em) {
+        position: fixed;
+        display: block;
+        z-index: 20;
+        width: 50%;
+        height: 100%;
+        // background: rgba(208, 208, 208, 0.08);
+        backdrop-filter: blur(30px);
+      }
+    }
+    & .menuIcon_logo_wrapper {
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+      display: flex;
+      align-items: flex-start;
+      align-items: center;
+      @media screen and (max-width: 41.5em) {
+        padding: 1rem;
+      }
+      & .menuIcon {
+        display: none;
+        font-size: 5rem;
+        color: var(--main-color);
+        @media screen and (max-width: 41.5em) {
+          display: block;
+        }
+      }
+      & .logo {
+        margin-left: 3rem;
+      }
+    }
+
+    & ul.vendorDashboard_left_list {
       list-style-type: none;
       .nav-link {
         text-decoration: none;
@@ -34,8 +59,8 @@
       & li {
         display: flex;
         align-items: center;
-        padding: 1rem 4rem;
-        margin-bottom: .5rem;
+        padding: 1rem 2rem;
+        margin-bottom: 0.5rem;
         & .icon {
           margin-right: 1rem;
           color: gray;
@@ -46,7 +71,6 @@
           font-weight: 300;
           font-size: 1.5rem;
           line-height: 1.9rem;
-          /* identical to box height */
           color: #000000;
         }
         &.logout {
@@ -63,7 +87,7 @@
             height: 100%;
             top: 0;
             left: 0;
-            width: .4rem;
+            width: 0.4rem;
             background-color: var(--main-color);
           }
         }
@@ -72,8 +96,31 @@
       // }
     }
   }
-  & .farmerDashboard_right {
+  & .vendorDashboard_right {
     flex: 0 1 80%;
     padding: 2rem 4rem 2rem 10rem;
+    & .menu_icon_searchNotification {
+      display: flex;
+      margin-bottom: 6rem;
+      align-items: center;
+      & .menuIcon {
+        font-size: 5rem;
+        color: var(--main-color);
+        display: none;
+        margin-right: 2rem;
+        @media screen and (max-width: 41.5em) {
+          display: flex;
+        }
+      }
+    }
+    @media screen and (max-width: 66em) {
+      margin: 0;
+      flex: 0 1 70%;
+      padding: 2rem 2rem 2rem 4rem;
+    }
+    @media screen and (max-width: 41.5em) {
+      flex: 0 1 100%;
+      padding: 2rem 3rem 2rem 3rem;
+    }
   }
 }

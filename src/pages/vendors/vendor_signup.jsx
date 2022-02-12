@@ -7,6 +7,8 @@ import { BASE_URL } from "../../constant/url";
 import { useDispatch, useSelector } from "react-redux";
 
 import { register } from "../../redux/actions/vendorsAction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function VendorSignUp() {
 
@@ -34,21 +36,17 @@ export default function VendorSignUp() {
   };
 
   useEffect(() => {
-    if ((vendorInfo && vendorInfo.id > 0) || regsuccess || success)
-      navigate("/vendor");
+    if ((vendorInfo && vendorInfo.id > 0) || regsuccess || success) navigate("/vendor");
+    if(regerror) toast(`${regerror}`)
   }, [dispatch, vendorSignIn, error, vendorInfo, success]);
 
   return (
     
     <div className="signUp">
+      <ToastContainer/>
       <FormLeft />
       <div className="signup_right">
         <div className="signup_title">Sign-up</div>
-        {regerror && (
-          <div className="signup_title" style={{ color: "red" }}>
-            {regerror}
-          </div>
-        )}
         <form className="form_wrapper" onSubmit={(e) => handleSubmit(e)}>
           <div className="input_form first">
             <div className="input_form_left">

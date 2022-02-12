@@ -25,7 +25,7 @@ $color-primary-dark: rgb(61, 61, 82);
       ),
       url("../assest/nat-6.jpg");
   }
-  @media screen and (max-width: 45.375em) {
+  @media screen and (max-width: 45.375em) { 
     flex-direction: column;
     background-image: linear-gradient(
         to bottom,
@@ -53,7 +53,6 @@ $color-primary-dark: rgb(61, 61, 82);
     justify-content: center;
     align-items: center;
     // position: relative;
-    border: 1px solid red;
     @media screen and (max-width: 45.375em) {
       width: 100%;
     }
@@ -64,7 +63,7 @@ $color-primary-dark: rgb(61, 61, 82);
     & .contact_left-wrapper {
       max-width: 36rem;
       width: 100%;
-      // border: 1px solid red;
+  
 
       & h2 {
         font-size: 3.2rem;

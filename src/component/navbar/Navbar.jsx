@@ -9,6 +9,8 @@ import { useEffect, useRef } from "react";
 
 export default function Navbar({ position }) {
   const userSignin = useSelector((state) => state.userSignIn);
+  const vendorSignIn = useSelector((state) => state.vendorSignIn);
+  const { vendorInfo } = vendorSignIn;
   const { userInfo } = userSignin;
   const headerRef = useRef();
 
@@ -68,7 +70,7 @@ export default function Navbar({ position }) {
         </nav>
 
         <div className="nav__right">
-          {userInfo && userInfo.token ? (
+          { userInfo && userInfo.token ? (
             userInfo.role === "farmer" ? (
               <button className="login__button">
                 <img
@@ -80,20 +82,8 @@ export default function Navbar({ position }) {
                   <p className="login__button__text">Dashboard</p>
                 </Link>
               </button>
-            ) : (
-              <button className="login__button">
-                <img
-                  src="/images/user (1).png"
-                  alt=""
-                  className="login__button__image"
-                />
-                <Link to="/vendor_dashboard" className="link">
-                  <p className="login__button__text">Vendor</p>
-                </Link>
-              </button>
-            )
-          ) : (
-            <>
+            ):(
+              <>
               <button className="login__button">
                 <Link to="/loginPage" className="link">
                   Login
@@ -104,7 +94,40 @@ export default function Navbar({ position }) {
                   Signup
                 </Link>
               </button>
+
             </>
+            )
+          ) : (
+            
+              vendorInfo && vendorInfo.token && vendorInfo.role === "vendor" ? (
+                <button className="login__button">
+                <img
+                  src="/images/user (1).png"
+                  alt=""
+                  className="login__button__image"
+                />
+                <Link to="/vendor" className="link">
+                  <p className="login__button__text">Vendor</p>
+                </Link>
+              </button>
+              ):(
+
+                <>
+                <button className="login__button">
+                  <Link to="/loginPage" className="link">
+                    Login
+                  </Link>
+                </button>
+                <button className="signup__button">
+                  <Link to="/signUpPage" className="link">
+                    Signup
+                  </Link>
+                </button>
+
+              </>
+              )
+            
+          
           )}
 
           <form className="search__form">

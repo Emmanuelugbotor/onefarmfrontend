@@ -5,6 +5,9 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import {url} from "../../constant/url";
 
+const userToken = JSON.parse(localStorage.getItem('userInfo'))
+console.log(userToken)
+
 export const getProducts = () => async (dispatch) => {
   dispatch({
     type: actionTypes.GET_PRODUCT_REQUEST,
@@ -101,3 +104,72 @@ export const getProductDetails = (id) => async (dispatch) => {
     });
   }
 };
+
+export const deleteProduct = (id, userInfo) => async (dispatch) => {
+  
+  dispatch({
+    type: actionTypes.DELETE_PRODUCT_REQUEST,
+  });
+  try {
+    axios
+      .delete(`${url}deleteProduct/${id}`, {
+        headers:{
+          Authorization: `Bearer ${userInfo.token}`,
+        }
+      })
+      .then((res) =>
+        dispatch({
+          type: actionTypes.DELETE_PRODUCT_SUCCESS,
+          payload: res.data.items,
+        })
+      )
+      .catch((error) =>
+        dispatch({
+          type: actionTypes.DELETE_PRODUCT_FAIL,
+          payload: error,
+        })
+      );
+  } catch (error) {
+    dispatch({
+      type: actionTypes.DELETE_PRODUCT_FAIL,
+      payload: error,
+    });
+  }
+};
+
+export const editProduct = (id, userInfo) => async (dispatch) => {
+  
+  dispatch({
+    type: actionTypes.EDIT_PRODUCT_REQUEST,
+  });
+  try {
+    axios
+      .delete(`${url}deleteProduct/${id}`, {
+        headers:{
+          Authorization: `Bearer ${userInfo.token}`,
+        }
+      })
+      .then((res) =>
+        dispatch({
+          type: actionTypes.EDIT_PRODUCT_SUCCESS,
+          payload: res.data.items,
+        })
+      )
+      .catch((error) =>
+        dispatch({
+          type: actionTypes.EDIT_PRODUCT_FAIL,
+          payload: error,
+        })
+      );
+  } catch (error) {
+    dispatch({
+      type: actionTypes.EDIT_PRODUCT_FAIL,
+      payload: error,
+    });
+  }
+};
+// , {
+//   headers: {
+//     Authorization: `Bearer ${userInfo.token}`,
+//   },
+// }
