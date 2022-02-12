@@ -44,6 +44,7 @@ export default function FarmerDashAdd() {
     formInfo.append("img", img);
 
     dispatch(postProducts(formInfo, userInfo));
+    
     if (products) {
       setToggle(!toggle);
       toast("Product uploaded successfully")

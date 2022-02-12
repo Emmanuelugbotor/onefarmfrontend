@@ -13,16 +13,28 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import CartButton from "../../utils/cartButton";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import DetailsResponse from "../../component/detailsResponse/detailsResponse";
 
 const { farmers } = Data;
 
 export default function Farmers() {
+
+  const userSignin = useSelector((state) => state.userSignIn);
+
+  const { userInfo } = userSignin;
+
+
+
+
   const dispatch = useDispatch();
   const [reveal, setReveal] = useState(false);
   const [current, setCurrent] = useState(farmers[0].id);
   const [farmersList, setFarmersList] = useState(farmers);
   const [productList, setProduct] = useState(farmers);
   const [farmersProduct, setFarmerProduct] = useState(farmers);
+
+const [show, setShow] = useState(false); 
+const [productInfo, setProductInfo] = useState();
 
   function handleClicked(id) {
     setCurrent(id);
@@ -31,6 +43,15 @@ export default function Farmers() {
   }
 
   let added = addToCarts(useDispatch, useSelector);
+
+  const hideDetails = () => {
+    setShow(!show);
+  };
+
+  const showDetails = (items) => {
+    setShow(true);
+    setProductInfo(items);
+  };
 
   useEffect(() => {
     axios
@@ -155,17 +176,28 @@ export default function Farmers() {
                       <div className="products_item_category">
                         <p> {prod.name} </p>
                         <p> #{prod.amt} </p>
-                        <span> {prod.weight} kg </span>
+                        {/* <span> {prod.weight} kg </span> */}
                       </div>
-                    </div>
-                    <button
-                      className="button"
-                      onClick={() => added(`${prod.id}`, prod.fullbag)}
-                    >
-                      <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                      {prod.amt}
-                    </button>
-                    <button className="button">View Product</button>
+                    </div> 
+                    {
+                     userInfo&& userInfo.token && userInfo.role === "farmer" ? (
+                        null
+                      ): (
+
+                        <button
+                          className="button"
+                          onClick={() => added(`${prod.id}`, prod.fullbag)}
+                          style={{borderRadius: "50%"}}
+                        >
+                          <i className="fa fa-shopping-cart" aria-hidden="true">  </i>
+
+                          {/* {prod.amt} */}
+
+                        </button>
+
+                      )
+                    }
+                    <button className="button" onClick={() => showDetails(prod)} >View Product</button>
                   </li>
                 );
               })}
@@ -173,6 +205,10 @@ export default function Farmers() {
           </div>
         </div>
       </div>
+
+      {show && (
+        <DetailsResponse items={productInfo} hideDetails={hideDetails} />
+      )}
     </div>
   );
 }

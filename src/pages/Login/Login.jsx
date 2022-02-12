@@ -36,10 +36,10 @@ export default function Login() {
     <form className="login" onSubmit={(e) => submitHandler(e)}>
       <ToastContainer/>
       <FormLeft />
-      <div className="login_right">
+      <div className="login_right ">
         <div className="login_right_title">Login</div>
         {/* {error ?  toast("Incorrect username or password"): null} */}
-        <div className="input_form">
+        <div className="input_form login-main login_main-1 ">
           <input
             type="text"
             placeholder="email or phone number"
@@ -47,7 +47,7 @@ export default function Login() {
           />
           <PersonIcon className="personIcon" />
         </div>
-        <div className="input_form">
+        <div className="input_form login-main">
           <input
             type="password"
             placeholder="password"
@@ -55,12 +55,14 @@ export default function Login() {
           />
           <KeyIcon className="KeyIcon" />
         </div>
+        <span className="forget-password">forget password ?</span>
         <input type="submit" value="Login" />
         <div className="form_redirection">
           <span>  Don’t Have an account?</span>
           <Link to="/farmer_signUpPage" className="link">
             Signup
           </Link>
+           
         </div>
       </div>
     </form>

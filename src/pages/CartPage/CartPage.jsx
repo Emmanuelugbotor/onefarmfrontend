@@ -1,18 +1,19 @@
-// import DetailsResponse from "../../component/detailsResponse/detailsResponse";
-// import RemoveFromCart from "../../utils/removeFromCart";
-// import CheckIcon from "@mui/icons-material/Check";
-// import "./CartPage.scss";
-// import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-// import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-// import Data from "../../dommydata";
-// import { useSelector, useDispatch } from "react-redux";
-// import AddToCard from "../../utils/addToCartForCart";
-// import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import { pagination } from "../../paginateFunction";
-// import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-// import { createOrder } from "../../redux/actions/orderActions";
-// import { useFlutterwave, closePaymentModal, FlutterWaveButton } from 'flutterwave-react-v3';
+import DetailsResponse from "../../component/detailsResponse/detailsResponse";
+import RemoveFromCart from "../../utils/removeFromCart";
+import CheckIcon from "@mui/icons-material/Check";
+import "./CartPage.scss";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Data from "../../dommydata";
+import { useSelector, useDispatch } from "react-redux";
+import AddToCard from "../../utils/addToCartForCart";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { pagination } from "../../paginateFunction";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { createOrder } from "../../redux/actions/orderActions";
+import { useFlutterwave, closePaymentModal, FlutterWaveButton } from 'flutterwave-react-v3';
 
 // import { url } from "../../constant/url";
 
@@ -26,19 +27,13 @@
 
 //   //public_key: 'FLWPUBK-93f72abbb910f3df3c4dbc960feb93c6-X',
 
-//   let totalPrice = 0;
-//   let cartItems = useSelector((state) => state.cart);
-//   let numOfCartItems = cartItems.cartItems.length;
-//   cartItems.cartItems.forEach((items, index) => {
-//     totalPrice += parseInt(items.sellingPrice);
-//   });
-
-//   let cartRemover = RemoveFromCart(useDispatch);
-//   let addToCart = AddToCard(useDispatch, useSelector);
-
-//   let x = {status: 'successful',
-//   transaction_id: 3115978, tx_ref: 1644405793586,
-//    flw_ref: 'FLW-MOCK-c28b857d2fe16463c0e7dd493550f141',
+  
+  let totalPrice = 0;
+  let cartItems = useSelector((state) => state.cart);
+  let numOfCartItems = cartItems.cartItems.length;
+  cartItems.cartItems.forEach((items, index) => {
+    totalPrice += parseInt(items.sellingPrice);
+  });
 
 //  amount: 933,
 //  currency: "NGN",
@@ -59,27 +54,35 @@
 // console.log(cartItems)
 // console.log("cartItems", cartItems.cartItems)
 
-// // handle the paginate and reduct ion function....
-// const [paginate, setPaginate] = useState(1);
-// const [productData, setProductData] = useState([]);
-// const [show, setShow] = useState(false);
-// const [productInfo, setProductInfo] = useState();
-// // determine the pagination condition...
-// const total = cartItems.cartItems.length;
-// const pageCount = 3;
-// const pageSize = Math.ceil(total / pageCount);
-// // console.log(pageSize);
+// handle the paginate and reduct ion function....
+const [paginate, setPaginate] = useState(1);
+const [productData, setProductData] = useState([]);
+const [show, setShow] = useState(false);
+const [productInfo, setProductInfo] = useState();
+// determine the pagination condition...
+const total = cartItems.cartItems.length;
+const pageCount = 3;
+const pageSize = Math.ceil(total / pageCount);
+// console.log(pageSize);
 
-// function handleIncrement() {
-//   if (paginate < pageSize) {
-//     setPaginate(paginate + 1);
-//   }
-// }
-// function handleReduction() {
-//   if (paginate > 1) {
-//     setPaginate(paginate - 1);
-//   }
-// }
+function handleIncrement() {
+  if (paginate < pageSize) {
+    setPaginate(paginate + 1);
+  }
+}
+function handleReduction() {
+  if (paginate > 1) {
+    setPaginate(paginate - 1);
+  }
+}
+const showDetails = (items) => {
+  setShow(true);
+  setProductInfo(items);
+};
+
+const hideDetails = () => {
+  setShow(!show);
+};
 
 // const showDetails = (items) => {
 //   setShow(true);

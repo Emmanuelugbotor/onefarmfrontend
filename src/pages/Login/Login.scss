@@ -41,9 +41,15 @@
       height: 5rem;
       max-width: 40rem;
       width: 100%;
-      margin-bottom: 4rem;
       position: relative;
       font-size: 1.6rem;
+      &.login-main{
+        margin-bottom:0;
+        &.login_main-1{
+          margin-bottom:2rem;
+        }
+
+      }
       @media screen and (max-width: 54.3125em) {
         margin-bottom: 2rem;
         max-width: 100%;
@@ -70,6 +76,13 @@
         color: #88b22e;
       }
     }
+    & span.forget-password{
+      display:inline-block;
+      color:var(--main-color);
+      font-size:1rem;
+      margin-bottom: 2rem;
+      margin-top:.5rem;
+    }
     & input[type="submit"] {
       max-width: 40rem;
       width: 100%;
@@ -89,10 +102,11 @@
       margin-top: 2rem;
       font-family: Lato;
       font-style: normal;
-      font-weight: bold;
-      font-size: 2rem;
-      line-height: 2.4rem;
+      font-weight: 100;
+      font-size: 1.6rem;
+      line-height: 1.8rem;
       color: #000000;
+      text-align: center;
       @media screen and (max-width: 54.3125em) {
         font-size: 1.4rem;
         line-height: 2rem;
@@ -101,6 +115,7 @@
       & span {
         display: inline-block;
         margin-right: 0.5rem;
+        font-weight:100;
       }
       & .link {
         text-decoration: none;

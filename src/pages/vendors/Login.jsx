@@ -6,6 +6,8 @@ import FormLeft from "../../component/formLeft/FormLeft";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { signin } from "../../redux/actions/vendorsAction";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function VendorLogin() {
   let dispatch = useDispatch();
@@ -28,14 +30,16 @@ export default function VendorLogin() {
     if ((vendorInfo && vendorInfo.id > 0) || success) {
       navigate("/vendor");
     }
+    if(error) toast("Incorrect Username or password")
   }, [dispatch, error, vendorInfo]);
 
   return (
     <form className="login" onSubmit={(e) => submitHandler(e)}>
+      <ToastContainer/>
+
       <FormLeft />
       <div className="login_right">
         <div className="login_right_title">Login</div>
-        {error && <h4 style={{ color: "red" }}>{error}</h4>}
         <div className="input_form">
           <input
             type="text"

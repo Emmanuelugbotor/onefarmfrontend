@@ -39,7 +39,7 @@ export const signin = (email, password) => async (dispatch) => {
   });
 
   try {
-    const { data } = await axios.post(`${url}farmer_login`, {
+    const { data } = await axios.post(`${url}vendor_login`, {
       email,
       password,
     });

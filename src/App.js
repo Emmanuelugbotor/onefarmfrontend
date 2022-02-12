@@ -22,7 +22,7 @@ import AdminDashboard from "./pages/superAdminRoutes/adminDashboard/adminDashboa
 import Address from './pages/Address/Address'
 import { Provider, useSelector } from "react-redux";
 import store from "../src/redux/store";
-
+// vendor section........
 import VendorSignUp from "./pages/vendors/vendor_signup"
 import VendorLogin from "./pages/vendors/Login"
 import VendorDashboard from "./pages/vendors/VendorDashboard";
@@ -45,7 +45,9 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/address" element={<Address />} />
+
           {/* FARMERS SECTION */}
+          
           <Route path="/farmer_signUpPage" element={<SignUp />} />
           <Route path="/farmer_LoginPage" element={<Login />} />
           <Route
@@ -92,12 +94,13 @@ const PrivateRoute = ({ children }) => {
 };
 
 const VendorPrivateRoute = ({ children }) => {
-  console.log("this is the length of the children ", children.length)
+  // console.log("this is the length of the children ", children.length)
   
   const vendorSignIn = useSelector((state) => state.vendorSignIn);
   const { vendorInfo, loading, error, success } = vendorSignIn;
   if (vendorInfo && vendorInfo.token && vendorInfo.role === "vendor") return children;
   return <Navigate to="/buyers_LoginPage" />;
+  // return children;  
 };
 
 

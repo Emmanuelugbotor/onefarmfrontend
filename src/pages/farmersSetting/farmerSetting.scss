@@ -4,8 +4,14 @@
     margin-bottom: 2rem;
   }
   & form {
+    &.password-form{
+      border-top:1px solid grey;
+      max-width: 51.2rem;
+      width:100%;
+      margin-top:5rem;
+    }
     & .form__field {
-      max-width: 512px;
+      max-width: 51.2rem;
       width: 100%;
       position: relative;
       margin-bottom: 0.8rem;
@@ -13,6 +19,7 @@
         max-width: 100%;
         width: 100%;
       }
+      
       & input {
         width: 100%;
         padding: 1.8rem 1.6rem;
@@ -28,7 +35,8 @@
         font-size: 1.6rem;
       }
     }
-    & .form_submit {
+    & .form_submit,
+    & .password_submit {
       max-width: 512px;
       width: 100%;
       display: flex;
@@ -60,5 +68,6 @@
         }
       }
     }
+   
   }
 }
