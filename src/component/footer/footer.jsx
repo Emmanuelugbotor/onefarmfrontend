@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="footer__section__column">
+          <div className="footer__section__column contact-link">
             <h1 className="footer__section__text__header">Contact Us</h1>
             <ul className="footer__section__details">
               <li>

@@ -76,6 +76,9 @@
     }
     & .primary {
       display: flex;
+      @media screen and (max-width: 41.4375em) {
+        flex-direction: column;
+      }
       & h1 {
         margin-right: 22.5rem;
         @media screen and (max-width: 62.5em) {
@@ -87,9 +90,17 @@
         @media screen and (max-width: 49.5em) {
           margin-right: 8rem;
         }
+        @media screen and (max-width: 41.4375em) {
+          margin-right: 0rem;
+          text-align: center;
+          margin-bottom: 1rem;
+        }
       }
       & .right {
         width: 46rem;
+        @media screen and (max-width: 41.4375em) {
+          width: 100%;
+        }
         & p {
           font-family: Poppins;
           font-style: normal;
@@ -420,7 +431,10 @@ section.upcoming_events {
       @media screen and (max-width: 62.5em) {
         flex: 1;
         width: 100%;
-        padding: 0 4rem;
+        padding: 0 4rem;        
+      }
+      @media screen and (max-width: 38.5em){
+        padding: 0rem;
       }
 
       &:first-of-type {
@@ -437,6 +451,9 @@ section.upcoming_events {
         line-height: 2.7rem;
         color: #000000;
         margin-bottom: 2rem;
+        @media screen and (max-width: 38.5em){
+          text-align: center;
+        }
       }
       & p {
         font-family: Poppins;
@@ -492,7 +509,12 @@ section.newsletter {
         margin-right: 53px;
       }
     }
-    & form {
+    & form.newLetterForm {
+      @media screen and (max-width: 27.3125em) {
+        width: 100%;
+        padding-left: 2rem;
+        padding-right: 2rem;
+      }
       & .form_field {
         width: 50.2rem;
         height: 6.7rem;
@@ -530,6 +552,9 @@ section.newsletter {
           width: 402px;
           font-size: 18px;
           font-weight: 400;
+        }
+        @media screen and (max-width: 27.3125em) {
+          width: 100%;
         }
       }
     }
@@ -602,7 +627,7 @@ section.newsletter {
       outline: none;
       @include format-hover(
         translateY(-0.1rem),
-        0rem 0.5rem 1rem rgba(0,0,0, 0.2)
+        0rem 0.5rem 1rem rgba(0, 0, 0, 0.2)
       );
     }
     &::after {
@@ -620,5 +645,4 @@ section.newsletter {
       transition: all 0.4s;
     }
   }
-  
 }

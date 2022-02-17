@@ -1,13 +1,13 @@
 .farmerDash {
   display: flex;
-  width: 100%; 
+  width: 100%;
   & .farmerDashboard_left {
     flex: 0 1 20%;
     height: 100vh;
     position: sticky;
     top: 0;
     left: 0;
-     background: rgba(208, 208, 208, 0.08);  
+    background: rgba(208, 208, 208, 0.08);
     box-shadow: 0px 0.4rem 3.1rem rgba(0, 0, 0, 0.1);
     // overflow-y: scroll;
     @media screen and (max-width: 66em) {
@@ -27,6 +27,9 @@
         // background: rgba(208, 208, 208, 0.08);
         backdrop-filter: blur(30px);
       }
+      @media screen and (max-width: 33.25em) {
+        width: 25rem;
+      }
     }
     & .menuIcon_logo_wrapper {
       margin-top: 2rem;
@@ -44,9 +47,20 @@
         @media screen and (max-width: 41.5em) {
           display: block;
         }
+        @media screen and (max-width: 33.25em) {
+          font-size: 3.8rem;
+        }
       }
       & .logo {
         margin-left: 3rem;
+        @media screen and (max-width: 33.25em) {
+          margin-left: 0rem;
+        }
+        & img {
+          @media screen and (max-width: 33.25em) {
+            width: 100px;
+          }
+        }
       }
     }
 

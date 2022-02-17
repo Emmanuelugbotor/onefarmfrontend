@@ -27,6 +27,8 @@ import VendorSignUp from "./pages/vendors/vendor_signup"
 import VendorLogin from "./pages/vendors/Login"
 import VendorDashboard from "./pages/vendors/VendorDashboard";
 import ContactUsMain from './pages/contactUsPageMain/contactUsMain'
+import ForgetPassword from "./pages/forgetPassword/ForgetPassword";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
 // import CheckoutPage from "../src/"
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/address" element={<Address />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/confirm-password/*" element={<ResetPassword />} />
 
           {/* FARMERS SECTION */}
           

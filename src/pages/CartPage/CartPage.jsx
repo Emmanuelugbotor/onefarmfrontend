@@ -16,7 +16,7 @@ import { useFlutterwave, closePaymentModal, FlutterWaveButton } from 'flutterwav
 
 // import { url } from "../../constant/url";
 
-// export default function CartPage() {
+export default function CartPage() {
 
 //   let dispatch = useDispatch()
 
@@ -264,4 +264,4 @@ const hideDetails = () => {
 //       )}
 //     </div>
 //   );
-// }
+}

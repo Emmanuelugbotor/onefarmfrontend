@@ -1,0 +1,32 @@
+button.rippleButton {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  background: linear-gradient(90deg,  var(--subMain-color), var(--main-color));
+  position: relative;
+  overflow: hidden;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+span.ripple {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  animation: animate 1s linear infinite;
+  transform: translate(-50%, -50%);
+}
+@keyframes animate {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}

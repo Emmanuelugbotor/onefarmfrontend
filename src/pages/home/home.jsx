@@ -168,7 +168,7 @@ export default function Home() {
         <section className="newsletter">
           <div className="form_wrapper">
             <h1>Newsletter</h1>
-            <form action="">
+            <form className="newLetterForm" action="">
               <div className="form_field">
                 <input type="text" name="" id="" placeholder="Full name" />
               </div>

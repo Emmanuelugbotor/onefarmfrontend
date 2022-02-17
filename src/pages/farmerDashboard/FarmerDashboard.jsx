@@ -52,7 +52,7 @@ export default function FarmerDashboard() {
           <MenuIcon className="menuIcon" onClick={handleToggle} />
           <div className="logo">
             <Link to={"/"}>
-              <img src="/images/main-logo.png" alt="main-logo" />
+              <img src="/images/main-logo.png" alt="main-logo"  />
             </Link>
           </div>
         </div>
